@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Base de données joueurs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body {
+      background-color: #050814;
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .db-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px 24px 40px;
+      background: rgba(9, 14, 40, 0.95);
+      border-radius: 16px;
+      box-shadow: 0 0 32px rgba(0, 229, 255, 0.25);
+      border: 1px solid rgba(0, 229, 255, 0.5);
+    }
+    .db-title {
+      margin: 0 0 10px;
+      font-size: 28px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .db-subtitle {
+      margin: 0 0 24px;
+      text-align: center;
+      font-size: 14px;
+      color: #a5b3ff;
+    }
+    .db-top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .db-search {
+      flex: 1 1 240px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 229, 255, 0.6);
+      background: rgba(5, 10, 30, 0.9);
+      color: #f5f5f5;
+      outline: none;
+      font-size: 14px;
+    }
+    .db-search::placeholder {
+      color: #7080b0;
+    }
+    .db-btn {
+      border-radius: 999px;
+      border: 1px solid #00e5ff;
+      background: linear-gradient(120deg, #00e5ff, #00ffa3);
+      color: #050814;
+      font-weight: 700;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .db-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      background: #222a40;
+      color: #8b95c4;
+      border-color: #444c70;
+    }
+    .db-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .db-card {
+      background: radial-gradient(circle at top, rgba(0, 229, 255, 0.15), rgba(5, 10, 30, 0.95));
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      box-shadow: 0 0 16px rgba(0, 229, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+    }
+    .db-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .db-card-name {
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .db-card-id {
+      font-size: 11px;
+      color: #8fa0ff;
+    }
+    .db-card-label {
+      font-weight: 600;
+      color: #9fb2ff;
+      margin-right: 4px;
+    }
+    .db-card-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: baseline;
+    }
+    .db-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      gap: 8px;
+    }
+    .db-tag {
+      font-size: 11px;
+      color: #a5b3ff;
+      opacity: 0.9;
+    }
+    .db-btn-small {
+      border-radius: 999px;
+      border: 1px solid rgba(0, 229, 255, 0.7);
+      background: rgba(0, 229, 255, 0.15);
+      color: #e8f4ff;
+      font-size: 11px;
+      padding: 6px 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .db-btn-small:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      border-color: #444c70;
+      background: rgba(10, 14, 40, 0.9);
+    }
+    .db-empty {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #8b95c4;
+    }
+    .db-warning {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #ffbfbf;
+      text-align: center;
+      opacity: 0.85;
+    }
+    @media (max-width: 640px) {
+      .db-container {
+        margin: 12px;
+        padding: 16px 14px 24px;
+      }
+      .db-title {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="db-container">
+    <h1 class="db-title">Base de données joueurs</h1>
+    <p class="db-subtitle">Page cachée accessible uniquement par l'URL directe <code>/database</code>.</p>
+    <div class="db-top-bar">
+      <input id="db-search" class="db-search" type="search" placeholder="Rechercher par prénom, nom ou id…">
+      <button id="db-download-all" class="db-btn">Tout télécharger (ZIP)</button>
+    </div>
+    <div class="db-warning">Attention : les mots de passe sont affichés en clair (utilisation projet perso uniquement).</div>
+    <div id="db-list" class="db-list"></div>
+    <p id="db-empty" class="db-empty" style="display:none;">Aucun compte trouvé.</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="/database.js"></script>
+</body>
+</html>

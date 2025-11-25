@@ -1,0 +1,19 @@
+[
+  {
+    "id": "user:test_test",
+    "firstName": "test",
+    "lastName": "test",
+    "fullName": "test test",
+    "salt": "72024f2cb1a9d2dd854a2f1d5cb50d33",
+    "password": "test",
+    "passwordHash": "863bff8f798fe39a1d8650807c89f84abf700a033efdba28839ca011d32ae1ab",
+    "createdAt": 1764103919468,
+    "updatedAt": 1764103919468,
+    "stats": {
+      "bestScore": 0,
+      "bestDistance": 0,
+      "bestCaptures": 0,
+      "collection": []
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "name": "angry-flappy-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static server for Angry Flappy site",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^5.0.0"
+  }
+}

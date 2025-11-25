@@ -1,0 +1,47 @@
+[
+  {
+    "id": "test_test",
+    "nom": "test",
+    "prenom": "test",
+    "distance": 8,
+    "captures": 2,
+    "score": 240,
+    "updatedAt": 1764098794111
+  },
+  {
+    "nom": "Michel",
+    "prenom": "Muck",
+    "distance": 5,
+    "captures": 0,
+    "score": 220,
+    "updatedAt": 0,
+    "id": "placeholder-michel"
+  },
+  {
+    "id": "d_d",
+    "nom": "d",
+    "prenom": "d",
+    "distance": 5,
+    "captures": 2,
+    "score": 210,
+    "updatedAt": 1759792672360
+  },
+  {
+    "id": "michel_muck",
+    "nom": "Muck",
+    "prenom": "Michel",
+    "distance": 3,
+    "captures": 0,
+    "score": 30,
+    "updatedAt": 1759792455020
+  },
+  {
+    "nom": "BNI",
+    "prenom": "BNI",
+    "distance": 1,
+    "captures": 1,
+    "score": 1,
+    "updatedAt": 0,
+    "id": "placeholder-bni"
+  }
+]
