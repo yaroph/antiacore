@@ -21,8 +21,6 @@ window.QUESTIONS_GENERAL = [
     "type": "general"
   },
 
-  /* ---- QUESTIONS UN PEU PLUS DIFFICILES MISES EN FORMAT QCM ---- */
-
   {
     "id": 4,
     "question": "Quel océan borde la côte ouest de l'Amérique ?",
