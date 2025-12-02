@@ -1,4 +1,4 @@
-window.QUESTIONS.PERSONAL = [
+window.QUESTIONS_PERSONAL = [
   {
     "id": 1,
     "question": "Votre avis sur le LSPD ?",
@@ -358,7 +358,7 @@ window.QUESTIONS.PERSONAL = [
     "answer": "",
     "choice": "0 / 1 / 2 / 3 / 4 / 5",
     "type": "personnel"
-  }
+  },
 {
   "id": 46,
   "question": "Quel est votre type d’alcool préféré ?",
@@ -1160,7 +1160,7 @@ window.QUESTIONS.PERSONAL = [
   "answer": "",
   "choice": "Oui seul / Oui avec un groupe / Non",
   "type": "personnel"
-}
+},
 {
   "id": 146,
   "question": "Quel est le prénom de votre mère ?",
@@ -1720,4 +1720,5 @@ window.QUESTIONS.PERSONAL = [
   "choice": "",
   "type": "personnel"
 }
+
 ];
