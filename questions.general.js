@@ -1,5 +1,5 @@
 window.QUESTIONS_GENERAL = [
-  {
+   {
     "id": 1,
     "question": "Quel est la capitale de la France?",
     "answer": "Paris / Pari / paris",
@@ -20,16 +20,19 @@ window.QUESTIONS_GENERAL = [
     "choice": "",
     "type": "general"
   },
+
+  /* ---- QUESTIONS UN PEU PLUS DIFFICILES MISES EN FORMAT QCM ---- */
+
   {
     "id": 4,
     "question": "Quel océan borde la côte ouest de l'Amérique ?",
-    "answer": "Pacifique / Océan Pacifique / Pacific / Pacifi / pacific / Pacifiqu / pacifique / Ocean Pacifiqu / OceanPacifique / Océan Pacifiqu",
-    "choice": "",
+    "answer": "Océan Pacifique",
+    "choice": "Océan Atlantique / Océan Indien / Océan Arctique",
     "type": "general"
   },
   {
     "id": 5,
-    "question": "Combien y a‑t‑il de continents sur Terre ?",
+    "question": "Combien y a-t-il de continents sur Terre ?",
     "answer": "7 / sept / sep",
     "choice": "",
     "type": "general"
@@ -37,15 +40,15 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 6,
     "question": "Dans quel pays se trouve la Tour de Pise ?",
-    "answer": "Italie / Italy / Ital / Itali / italy / italie",
-    "choice": "",
+    "answer": "Italie",
+    "choice": "Espagne / France / Suisse",
     "type": "general"
   },
   {
     "id": 7,
     "question": "Quelle est la langue officielle du Brésil ?",
-    "answer": "Portugais / Portuguese / Portugai / Portugues / portugais / portuguese",
-    "choice": "",
+    "answer": "Portugais",
+    "choice": "Espagnol / Français / Anglais",
     "type": "general"
   },
   {
@@ -65,15 +68,15 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 10,
     "question": "Quel est l’animal le plus grand du monde ?",
-    "answer": "La baleine bleue / Baleine bleue / Blue whale / Blue whal / Bluewhale / blue whale / Baleine bleu / Baleinebleue / baleine bleue / Labaleinebleue",
-    "choice": "",
+    "answer": "Baleine bleue",
+    "choice": "Éléphant d’Afrique / Girafe / Cachalot",
     "type": "general"
   },
   {
     "id": 11,
     "question": "Quel est le plus long fleuve d'Égypte ?",
-    "answer": "Nil / Le Nil / nil / LeNil / le nil",
-    "choice": "",
+    "answer": "Nil",
+    "choice": "Amazone / Danube / Mississippi",
     "type": "general"
   },
   {
@@ -86,15 +89,15 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 13,
     "question": "Quel est le pays d’origine du sushi ?",
-    "answer": "Japon / Japan / Japa / Japo / japan / japon",
-    "choice": "",
+    "answer": "Japon",
+    "choice": "Chine / Corée du Sud / Thaïlande",
     "type": "general"
   },
   {
     "id": 14,
     "question": "Quelle est la langue la plus parlée au monde (natives) ?",
-    "answer": "Chinois mandarin / Mandarin / Mandari / mandarin / Chinois mandari / Chinoismandarin / chinois mandarin",
-    "choice": "",
+    "answer": "Mandarin",
+    "choice": "Anglais / Espagnol / Hindi",
     "type": "general"
   },
   {
@@ -106,14 +109,14 @@ window.QUESTIONS_GENERAL = [
   },
   {
     "id": 16,
-    "question": "Quel gaz les plantes absorbent‑elles pour la photosynthèse ?",
-    "answer": "Dioxyde de carbone / CO2 / co2 / Dioxydedecarbone / Dioxyde de carbon / dioxyde de carbone",
-    "choice": "",
+    "question": "Quel gaz les plantes absorbent-elles pour la photosynthèse ?",
+    "answer": "Dioxyde de carbone",
+    "choice": "Oxygène / Azote / Hélium",
     "type": "general"
   },
   {
     "id": 17,
-    "question": "Dans quel sport utilise‑t‑on une raquette et un volant ?",
+    "question": "Dans quel sport utilise-t-on une raquette et un volant ?",
     "answer": "Badminton / Badminto / badminton",
     "choice": "",
     "type": "general"
@@ -121,22 +124,22 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 18,
     "question": "Quel est le plus grand désert chaud du monde ?",
-    "answer": "Sahara / Le Sahara / Sahar / sahara / Le Sahar / LeSahara / le sahara",
-    "choice": "",
+    "answer": "Sahara",
+    "choice": "Gobi / Kalahari / Atacama",
     "type": "general"
   },
   {
     "id": 19,
     "question": "Quel est le symbole chimique de l’or ?",
-    "answer": "Au / au",
-    "choice": "",
+    "answer": "Au",
+    "choice": "Ag / Fe / Cu",
     "type": "general"
   },
   {
     "id": 20,
     "question": "Quel pays a pour capitale Ottawa ?",
-    "answer": "Canada / le Canada / Canad / canada / le Canad / leCanada / le canada",
-    "choice": "",
+    "answer": "Canada",
+    "choice": "États-Unis / Australie / Royaume-Uni",
     "type": "general"
   },
   {
@@ -149,15 +152,15 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 22,
     "question": "Quel est l’océan entre l’Afrique et l’Australie ?",
-    "answer": "Océan Indien / Indien / Indie / indien / Ocean Indie / OceanIndien / Océan Indie / OcéanIndien / Ocean Indien / ocean indien",
-    "choice": "",
+    "answer": "Océan Indien",
+    "choice": "Océan Atlantique / Océan Pacifique / Océan Arctique",
     "type": "general"
   },
   {
     "id": 23,
     "question": "Dans quel pays est né Mozart ?",
-    "answer": "Autriche / Austria / Austri / Autrich / austria / autriche",
-    "choice": "",
+    "answer": "Autriche",
+    "choice": "Allemagne / Italie / France",
     "type": "general"
   },
   {
@@ -170,22 +173,22 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 25,
     "question": "Quelle ville abrite la Sagrada Família ?",
-    "answer": "Barcelone / Barcelona / Barcelon / barcelona / barcelone",
-    "choice": "",
+    "answer": "Barcelone",
+    "choice": "Madrid / Rome / Lisbonne",
     "type": "general"
   },
   {
     "id": 26,
-    "question": "Combien y a‑t‑il de jours en février lors d’une année bissextile ?",
-    "answer": "29 / vingt‑neuf / vingt‑neu",
+    "question": "Combien y a-t-il de jours en février lors d’une année bissextile ?",
+    "answer": "29 / vingt-neuf / vingt-neu",
     "choice": "",
     "type": "general"
   },
   {
     "id": 27,
     "question": "Quel pays a pour capitale Madrid ?",
-    "answer": "Espagne / Spain / Spai / spain / Espagn / espagne",
-    "choice": "",
+    "answer": "Espagne",
+    "choice": "Italie / Portugal / Grèce",
     "type": "general"
   },
   {
@@ -205,8 +208,8 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 30,
     "question": "Quel est le plus grand océan du monde ?",
-    "answer": "Pacifique / Océan Pacifique / Pacifiqu / pacifique / Ocean Pacifiqu / OceanPacifique / Océan Pacifiqu / OcéanPacifique / Ocean Pacifique / ocean pacifique",
-    "choice": "",
+    "answer": "Océan Pacifique",
+    "choice": "Océan Atlantique / Océan Indien / Océan Arctique",
     "type": "general"
   },
   {
@@ -226,15 +229,15 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 33,
     "question": "Quel est le double de 12 ?",
-    "answer": "24 / vingt‑quatre / vingt‑quatr",
+    "answer": "24 / vingt-quatre / vingt-quatr",
     "choice": "",
     "type": "general"
   },
   {
     "id": 34,
     "question": "Quelle mer borde la Jordanie et Israël célèbre pour sa salinité ?",
-    "answer": "Mer Morte / La mer Morte / Mer Mort / MerMorte / mer Morte / mer morte / LamerMorte / La mer Mort / la mer morte",
-    "choice": "",
+    "answer": "Mer Morte",
+    "choice": "Mer Rouge / Mer Noire / Mer Caspienne",
     "type": "general"
   },
   {
@@ -261,13 +264,13 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 38,
     "question": "Quel pays est célèbre pour les pyramides de Gizeh ?",
-    "answer": "Égypte / Egypte / Egypt / Egyp / egypt / Égypt / egypte / égypte",
-    "choice": "",
+    "answer": "Égypte",
+    "choice": "Mexique / Pérou / Jordanie",
     "type": "general"
   },
   {
     "id": 39,
-    "question": "Qu’utilise‑t‑on pour mesurer la température corporelle ?",
+    "question": "Qu’utilise-t-on pour mesurer la température corporelle ?",
     "answer": "Thermomètre / Thermometer / Thermomete / Thermometr / Thermomètr / Thermometre / thermometer / thermometre / thermomètre",
     "choice": "",
     "type": "general"
@@ -275,8 +278,8 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 40,
     "question": "Dans quel pays se trouve la ville de Sydney ?",
-    "answer": "Australie / Australia / Australi / australia / australie",
-    "choice": "",
+    "answer": "Australie",
+    "choice": "Nouvelle-Zélande / Afrique du Sud / Canada",
     "type": "general"
   },
   {
@@ -310,14 +313,14 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 45,
     "question": "Dans quel pays se situe le Machu Picchu ?",
-    "answer": "Pérou / Perou / Peru / Per / Pero / Péro / peru / perou / pérou",
-    "choice": "",
+    "answer": "Pérou",
+    "choice": "Mexique / Chili / Bolivie",
     "type": "general"
   },
   {
     "id": 46,
     "question": "Quel est l’auteur de « Le Petit Prince » ?",
-    "answer": "Antoine de Saint‑Exupéry / Saint‑Exupery / Saint Exupéry / Saint Exupery / Saint Exuper / Saint Exupér / SaintExupery / SaintExupéry / Saint‑Exuper / saint exupery",
+    "answer": "Antoine de Saint-Exupéry / Saint-Exupery / Saint Exupéry / Saint Exupery / Saint Exuper / Saint Exupér / SaintExupery / SaintExupéry / Saint-Exuper / saint exupery",
     "choice": "",
     "type": "general"
   },
@@ -331,15 +334,15 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 48,
     "question": "Quel est le plus petit pays du monde ?",
-    "answer": "Vatican / Cité du Vatican / Le Vatican / Vatican City / Vatica / vatican / Le Vatica / LeVatican / le vatican / Vatican Cit",
-    "choice": "",
+    "answer": "Vatican",
+    "choice": "Monaco / Saint-Marin / Liechtenstein",
     "type": "general"
   },
   {
     "id": 49,
     "question": "Quel est l’animal emblème de la Chine ?",
-    "answer": "Panda / Panda géant / Pand / panda / Panda gean / Panda géan / Pandageant / Pandagéant / Panda geant / panda geant",
-    "choice": "",
+    "answer": "Panda géant",
+    "choice": "Tigre / Panda roux / Grue",
     "type": "general"
   },
   {
@@ -352,29 +355,29 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 51,
     "question": "Quelle monnaie est utilisée au Japon ?",
-    "answer": "Yen / yen",
-    "choice": "",
+    "answer": "Yen",
+    "choice": "Dollar / Euro / Won",
     "type": "general"
   },
   {
     "id": 52,
     "question": "Quel est le plus haut sommet du monde ?",
-    "answer": "Everest / Mont Everest / Mt Everest / Everes / everest / Mt Everes / MtEverest / mt everest / Mont Everes / MontEverest",
-    "choice": "",
+    "answer": "Everest",
+    "choice": "K2 / Kilimandjaro / Mont Blanc",
     "type": "general"
   },
   {
     "id": 53,
     "question": "Quelle est la langue officielle de l’Allemagne ?",
-    "answer": "Allemand / German / Germa / german / Alleman / allemand",
-    "choice": "",
+    "answer": "Allemand",
+    "choice": "Anglais / Néerlandais / Danois",
     "type": "general"
   },
   {
     "id": 54,
     "question": "Quelle capitale se trouve sur la Tamise ?",
-    "answer": "Londres / London / Londo / Londre / london / londres",
-    "choice": "",
+    "answer": "Londres",
+    "choice": "Paris / Berlin / Rome",
     "type": "general"
   },
   {
@@ -400,7 +403,7 @@ window.QUESTIONS_GENERAL = [
   },
   {
     "id": 58,
-    "question": "Quel est l’océan qui borde la côte est des États‑Unis ?",
+    "question": "Quel est l’océan qui borde la côte est des États-Unis ?",
     "answer": "Atlantique / Océan Atlantique / Atlantic Ocean / Atlantiqu / atlantique / Atlantic Ocea / AtlanticOcean / atlantic ocean / Ocean Atlantiqu / OceanAtlantique",
     "choice": "",
     "type": "general"
@@ -450,7 +453,7 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 65,
     "question": "Combien de jours a une année non bissextile ?",
-    "answer": "365 / trois cent soixante‑cinq / troiscentsoixante‑cinq / trois cent soixante‑cin",
+    "answer": "365 / trois cent soixante-cinq / troiscentsoixante-cinq / trois cent soixante-cin",
     "choice": "",
     "type": "general"
   },
@@ -471,7 +474,7 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 68,
     "question": "Quel est l’instrument à archet de l’orchestre le plus grave ?",
-    "answer": "Contrebasse / Contre‑basse / Double bass / Contrebass / Double bas / Doublebass / Contre‑bass / contrebasse / double bass / contre‑basse",
+    "answer": "Contrebasse / Contre-basse / Double bass / Contrebass / Double bas / Doublebass / Contre-bass / contrebasse / double bass / contre-basse",
     "choice": "",
     "type": "general"
   },
@@ -604,7 +607,7 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 87,
     "question": "Quel pays est célèbre pour Stonehenge ?",
-    "answer": "Royaume‑Uni / Angleterre / United Kingdom / England / Englan / england / Angleterr / Royaume‑Un / angleterre / royaume‑uni",
+    "answer": "Royaume-Uni / Angleterre / United Kingdom / England / Englan / england / Angleterr / Royaume-Un / angleterre / royaume-uni",
     "choice": "",
     "type": "general"
   },
@@ -639,7 +642,7 @@ window.QUESTIONS_GENERAL = [
   {
     "id": 92,
     "question": "Quel est le sport où l’on fait des paniers ?",
-    "answer": "Basket‑ball / Basketball / Basket / Baske / basket / Basketbal / Basket‑bal / basketball / basket‑ball",
+    "answer": "Basket-ball / Basketball / Basket / Baske / basket / Basketbal / Basket-bal / basketball / basket-ball",
     "choice": "",
     "type": "general"
   },
@@ -699,704 +702,867 @@ window.QUESTIONS_GENERAL = [
     "choice": "",
     "type": "general"
   },
+
+
   {
     "id": 101,
-    "question": "Quelle est la capitale des Pays‑Bas ?",
-    "answer": "Amsterdam / Amsterda / amsterdam",
-    "choice": "",
+    "question": "Qui a écrit « Harry Potter » ?",
+    "answer": "J.K. Rowling",
+    "choice": "Stephen King / J.R.R. Tolkien / George Orwell",
     "type": "general"
   },
   {
     "id": 102,
-    "question": "Quel métal a pour symbole Fe ?",
-    "answer": "Fer / Iron / Iro / fer / iron",
-    "choice": "",
+    "question": "Combien de côtés a un octogone ?",
+    "answer": "8",
+    "choice": "6 / 7 / 9",
     "type": "general"
   },
   {
     "id": 103,
-    "question": "Quel est le pays du kiwi (oiseau emblématique) ?",
-    "answer": "Nouvelle‑Zélande / Nouvelle Zelande / New Zealand / New Zealan / NewZealand / new zealand / Nouvelle Zeland / NouvelleZelande / Nouvelle‑Zeland / Nouvelle‑Zéland",
-    "choice": "",
+    "question": "En quelle année l’Homme a-t-il marché sur la Lune ?",
+    "answer": "1969",
+    "choice": "1959 / 1972 / 1981",
     "type": "general"
   },
   {
     "id": 104,
-    "question": "Quel est l’auteur d’« Hamlet » ?",
-    "answer": "Shakespeare / William Shakespeare / Shakespear / shakespeare / William Shakespear / WilliamShakespeare / william shakespeare",
-    "choice": "",
+    "question": "Quel est le plus grand continent du monde ?",
+    "answer": "Asie",
+    "choice": "Afrique / Amérique du Sud / Europe",
     "type": "general"
   },
   {
     "id": 105,
-    "question": "Quel pays a pour capitale Ankara ?",
-    "answer": "Turquie / Turkey / Turke / Turqui / turkey / turquie",
-    "choice": "",
+    "question": "Quel scientifique a proposé la théorie de la relativité ?",
+    "answer": "Albert Einstein",
+    "choice": "Isaac Newton / Galilée / Niels Bohr",
     "type": "general"
   },
   {
     "id": 106,
-    "question": "Quel nombre suit 99 ?",
-    "answer": "100 / cent / cen",
-    "choice": "",
+    "question": "Dans quel pays se trouve la Grande Barrière de corail ?",
+    "answer": "Australie",
+    "choice": "Indonésie / Mexique / Afrique du Sud",
     "type": "general"
   },
   {
     "id": 107,
-    "question": "Quelle est la capitale de l’Irlande ?",
-    "answer": "Dublin / Dubli / dublin",
-    "choice": "",
+    "question": "Quel organe filtre le sang et produit l’urine ?",
+    "answer": "Reins",
+    "choice": "Poumons / Foie / Cœur",
     "type": "general"
   },
   {
     "id": 108,
-    "question": "Quel est l’instrument à percussion avec peaux tendues ?",
-    "answer": "Tambour / Drum / Dru / drum / Tambou / tambour",
-    "choice": "",
+    "question": "Quelle est la capitale de la Russie ?",
+    "answer": "Moscou",
+    "choice": "Saint-Pétersbourg / Kiev / Minsk",
     "type": "general"
   },
   {
     "id": 109,
-    "question": "De quel pays viennent les pyramides mayas ?",
-    "answer": "Mexique / Mexico / Mexic / Mexiqu / mexico / mexique",
-    "choice": "",
+    "question": "Quel est l’élément chimique dont le symbole est O ?",
+    "answer": "Oxygène",
+    "choice": "Or / Osmium / Ozone",
     "type": "general"
   },
   {
     "id": 110,
-    "question": "Quelle est la capitale de l’Inde ?",
-    "answer": "New Delhi / Delhi / Delh / delhi / New Delh / NewDelhi / new delhi",
-    "choice": "",
+    "question": "Quel peintre a réalisé la Joconde ?",
+    "answer": "Léonard de Vinci",
+    "choice": "Michel-Ange / Pablo Picasso / Claude Monet",
     "type": "general"
   },
   {
     "id": 111,
-    "question": "Quel est le synonyme courant de « cinéma » ?",
-    "answer": "Film / Films / Le cinéma / Le film / Fil / film / films / Le fil / Lefilm / cinema",
-    "choice": "",
+    "question": "Quel pays a pour capitale Buenos Aires ?",
+    "answer": "Argentine",
+    "choice": "Brésil / Chili / Uruguay",
     "type": "general"
   },
   {
     "id": 112,
-    "question": "Quel est le plus grand pays du monde par superficie ?",
-    "answer": "Russie / Russia / Russi / russia / russie",
-    "choice": "",
+    "question": "Combien vaut la racine carrée de 81 ?",
+    "answer": "9",
+    "choice": "8 / 6 / 7",
     "type": "general"
   },
   {
     "id": 113,
-    "question": "Quel est le nom de l’étoile au centre du système solaire ?",
-    "answer": "Soleil / Le Soleil / Sun / sun / Solei / soleil / Le Solei / LeSoleil / le soleil",
-    "choice": "",
+    "question": "Dans quel pays se trouve la ville de Marrakech ?",
+    "answer": "Maroc",
+    "choice": "Algérie / Tunisie / Égypte",
     "type": "general"
   },
   {
     "id": 114,
-    "question": "Quelle est la langue officielle en Égypte ?",
-    "answer": "Arabe / Arabic / Arab / Arabi / arabe / arabic",
-    "choice": "",
+    "question": "Quel métal est liquide à température ambiante ?",
+    "answer": "Mercure",
+    "choice": "Plomb / Aluminium / Fer",
     "type": "general"
   },
   {
     "id": 115,
-    "question": "Quel est l’insecte qui se transforme en papillon ?",
-    "answer": "Chenille / Caterpillar / Chenill / chenille / Caterpilla / caterpillar",
-    "choice": "",
+    "question": "Quelle planète est la plus proche du Soleil ?",
+    "answer": "Mercure",
+    "choice": "Vénus / Terre / Mars",
     "type": "general"
   },
   {
     "id": 116,
-    "question": "Quel pays a pour capitale Séoul ?",
-    "answer": "Corée du Sud / Corée / South Korea / Korea / Core / Coré / Kore / Coree / coree / corée",
-    "choice": "",
+    "question": "Quelle est la langue officielle de la Russie ?",
+    "answer": "Russe",
+    "choice": "Ukrainien / Polonais / Allemand",
     "type": "general"
   },
   {
     "id": 117,
-    "question": "Quel est l’aliment de base du risotto ?",
-    "answer": "Riz / Rice / Ric / riz / rice",
-    "choice": "",
+    "question": "Qui a peint « Guernica » ?",
+    "answer": "Pablo Picasso",
+    "choice": "Salvador Dalí / Henri Matisse / Paul Cézanne",
     "type": "general"
   },
   {
     "id": 118,
-    "question": "Quel est le plus haut sommet des Alpes ?",
-    "answer": "Mont Blanc / Le Mont‑Blanc / Mont‑Blanc / Mont Blan / MontBlanc / Mont‑Blan / mont blanc / mont‑blanc / Le Mont‑Blan / LeMont‑Blanc",
-    "choice": "",
+    "question": "Quel mathématicien est associé au théorème des triangles ?",
+    "answer": "Pythagore",
+    "choice": "Archimède / Euclide / Thalès",
     "type": "general"
   },
   {
     "id": 119,
-    "question": "Quel est le pays d’origine du flamenco ?",
-    "answer": "Espagne / Spain / Spai / spain / Espagn / espagne",
-    "choice": "",
+    "question": "Quelle molécule a pour formule chimique H2O ?",
+    "answer": "Eau",
+    "choice": "Dioxygène / Dioxyde de carbone / Méthane",
     "type": "general"
   },
   {
     "id": 120,
-    "question": "Quelle ville est la capitale de l’Australie ?",
-    "answer": "Canberra / Canberr / canberra",
-    "choice": "",
+    "question": "Quel pays a pour capitale Ankara ?",
+    "answer": "Turquie",
+    "choice": "Grèce / Bulgarie / Syrie",
     "type": "general"
   },
   {
     "id": 121,
-    "question": "Quel fleuve traverse Londres ?",
-    "answer": "Tamise / La Tamise / Thames / Tamis / Thame / tamise / thames / La Tamis / LaTamise / la tamise",
-    "choice": "",
+    "question": "Quel scientifique a observé les satellites de Jupiter ?",
+    "answer": "Galilée",
+    "choice": "Copernic / Kepler / Newton",
     "type": "general"
   },
   {
     "id": 122,
-    "question": "Quelle mer sépare l’Afrique de l’Europe près de l’Espagne ?",
-    "answer": "Méditerranée / Mer Méditerranée / Mediterranean / Mediterrane / Méditerrané / Mediterranea / Mediterranee / mediterranee / méditerranée / mediterranean",
-    "choice": "",
+    "question": "Quel est le plus grand satellite naturel de la Terre ?",
+    "answer": "La Lune",
+    "choice": "Europe / Titan / Ganymède",
     "type": "general"
   },
   {
     "id": 123,
-    "question": "Quel scientifique a formulé la théorie de la relativité ?",
-    "answer": "Einstein / Albert Einstein / Einstei / einstein / Albert Einstei / AlbertEinstein / albert einstein",
-    "choice": "",
+    "question": "Quel gaz est responsable de l’effet de serre ?",
+    "answer": "Carbone",
+    "choice": "Argon / Hydrogène / Hélium",
     "type": "general"
   },
   {
     "id": 124,
-    "question": "Quel fruit est jaune et courbé ?",
-    "answer": "Banane / Banana / Banan / banana / banane",
-    "choice": "",
+    "question": "Dans quel pays se trouve la Tour CN (CN Tower) ?",
+    "answer": "Canada",
+    "choice": "États-Unis / Royaume-Uni / Australie",
     "type": "general"
   },
   {
     "id": 125,
-    "question": "Quel pays a pour capitale Hanoï ?",
-    "answer": "Vietnam / Viet Nam / Vietna / VietNam / vietnam / viet nam",
-    "choice": "",
+    "question": "Quel est l’organe principal du système nerveux central ?",
+    "answer": "Cerveau",
+    "choice": "Cœur / Estomac / Foie",
     "type": "general"
-  },
+  }
+window.QUESTIONS_GTA = [
   {
     "id": 126,
-    "question": "Quelle langue parle‑t‑on en Autriche ?",
-    "answer": "Allemand / German / Germa / german / Alleman / allemand",
-    "choice": "",
+    "question": "Comment s'appelle la boisson gazeuse rouge ?",
+    "answer": "eCola",
+    "choice": "Sprunk / Orang-O-Tang / Junk Energy",
     "type": "general"
   },
   {
     "id": 127,
-    "question": "Quel est le plus grand archipel au monde (pays) ?",
-    "answer": "Indonésie / Indonesia / Indonesi / Indonési / Indonesie / indonesia / indonesie / indonésie",
-    "choice": "",
+    "question": "Comment s'appelle la boisson gazeuse verte ?",
+    "answer": "Sprunk",
+    "choice": "eCola / Orang-O-Tang / Pisswasser",
     "type": "general"
   },
   {
     "id": 128,
-    "question": "Quelle est la capitale de la Suisse ?",
-    "answer": "Berne / Bern / Ber / bern / berne",
-    "choice": "",
+    "question": "Comment s'appelle la bière bon marché servie dans les bars ?",
+    "answer": "Pisswasser",
+    "choice": "Logger Beer / eCola / Sprunk",
     "type": "general"
   },
   {
     "id": 129,
-    "question": "En quelle année a eu lieu la bataille de Hastings ?",
-    "answer": "1066",
-    "choice": "1215 / 1415 / 1492",
+    "question": "Comment s'appelle le fast-food aux burgers rouge et jaune ?",
+    "answer": "Burger Shot",
+    "choice": "Cluckin' Bell / Up-n-Atom / Taco Bomb",
     "type": "general"
   },
   {
     "id": 130,
-    "question": "Quel physicien a découvert les rayons X ?",
-    "answer": "Röntgen",
-    "choice": "Bohr / Planck / Dirac",
+    "question": "Quel fast-food est spécialisé dans le poulet frit ?",
+    "answer": "Cluckin' Bell",
+    "choice": "Burger Shot / Up-n-Atom / Taco Bomb",
     "type": "general"
   },
   {
     "id": 131,
-    "question": "Quelle est la plus grande lune de Saturne ?",
-    "answer": "Titan",
-    "choice": "Europe / Ganymède / Io",
+    "question": "Comment s'appelle la chaîne de café aux gobelets marron et verts ?",
+    "answer": "Bean Machine",
+    "choice": "Burger Shot / Up-n-Atom / 24/7",
     "type": "general"
   },
   {
     "id": 132,
-    "question": "Qui a composé « Le Sacre du printemps » ?",
-    "answer": "Stravinski",
-    "choice": "Ravel / Debussy / Prokofiev",
+    "question": "Comment s'appelle la boisson énergétique pour les sports extrêmes ?",
+    "answer": "Junk Energy",
+    "choice": "eCola / Sprunk / Orang-O-Tang",
     "type": "general"
   },
   {
     "id": 133,
-    "question": "Quel pays a autrefois porté le nom de Ceylan ?",
-    "answer": "Sri Lanka",
-    "choice": "Myanmar / Thaïlande / Bangladesh",
+    "question": "Quel chocolat a pour logo une fusée ?",
+    "answer": "Meteorite",
+    "choice": "P's & Q's / EgoChaser / Rusty Brown's",
     "type": "general"
   },
   {
     "id": 134,
-    "question": "Quel écrivain a créé le personnage d’Emma Bovary ?",
-    "answer": "Flaubert",
-    "choice": "Zola / De Balzac / Stendhal",
+    "question": "Quelle marque de cigarettes de Los Santos ?",
+    "answer": "Redwood",
+    "choice": "Debonaire / Ron / eCola",
     "type": "general"
   },
   {
     "id": 135,
-    "question": "Quel est l’élément le plus abondant dans l’Univers ?",
-    "answer": "Hydrogène",
-    "choice": "Hélium / Oxygène / Carbone",
+    "question": "Comment s'appelle la compagnie de carburant orange et bleue ?",
+    "answer": "RON Oil",
+    "choice": "Globe Oil / Xero Gas / LTD",
     "type": "general"
   },
   {
     "id": 136,
-    "question": "Quel mathématicien a introduit le symbole pour l’infini ?",
-    "answer": "Wallis",
-    "choice": "Euler / Cantor / Descartes",
+    "question": "Quelle marque fabrique la Banshee ?",
+    "answer": "Bravado",
+    "choice": "Pegassi / Grotti / Karin",
     "type": "general"
   },
   {
     "id": 137,
-    "question": "Quelle ville fut capitale de l’Empire hittite ?",
-    "answer": "Hattusa",
-    "choice": "Babylone / Uruk / Thèbes",
+    "question": "Quelle marque fabrique la supercar Adder ?",
+    "answer": "Truffade",
+    "choice": "Progen / Pegassi / Dewbauchee",
     "type": "general"
   },
   {
     "id": 138,
-    "question": "Dans quel pays se trouve le site de Göbekli Tepe ?",
-    "answer": "Turquie",
-    "choice": "Iran / Irak / Syrie",
+    "question": "Quelle marque fabrique la Cheetah ?",
+    "answer": "Grotti",
+    "choice": "Pegassi / Bravado / Karin",
     "type": "general"
   },
   {
     "id": 139,
-    "question": "Quel compositeur a perdu l’ouïe mais continua de composer ?",
-    "answer": "Beethoven",
-    "choice": "Haydn / Schubert / Brahms",
+    "question": "Quelle marque de luxe fabrique la Rapid GT ?",
+    "answer": "Dewbauchee",
+    "choice": "Benefactor / Obey / Enus",
     "type": "general"
   },
   {
     "id": 140,
-    "question": "Quel peintre a réalisé « La Nuit étoilée » ?",
-    "answer": "Van Gogh",
-    "choice": "Gauguin / Monet / Matisse",
+    "question": "Quelle marque japonaise fabrique la Sultan ?",
+    "answer": "Karin",
+    "choice": "Vapid / Albany / Vulcar",
     "type": "general"
   },
   {
     "id": 141,
-    "question": "Quel est la Fosse le plus profond des océans ?",
-    "answer": "Mariannes",
-    "choice": "Médio‑atlantique / Tonga / Kermadec",
+    "question": "Quelle marque allemande fabrique la Schafter ?",
+    "answer": "Benefactor",
+    "choice": "Obey / Enus / Übermacht",
     "type": "general"
   },
   {
     "id": 142,
-    "question": "Quelle écrivaine a reçu le Nobel 2019 ?",
-    "answer": "Tokarczuk",
-    "choice": "Ernaux / Alexievitch / Morrison",
+    "question": "Quelle marque de motos fabrique la Bagger et la Hexer ?",
+    "answer": "Western",
+    "choice": "Nagasaki / Pegassi / LCC",
     "type": "general"
   },
   {
     "id": 143,
-    "question": "Quel empire a construit la route royale entre Suse et Sardes ?",
-    "answer": "Perse",
-    "choice": "Romain / Aassyrien / Babylonien",
+    "question": "Quelle marque fabrique la Sanchez et la Blazer ?",
+    "answer": "Nagasaki",
+    "choice": "Maibatsu / Western / Principe",
     "type": "general"
   },
+
   {
     "id": 144,
-    "question": "Qui a formulé la gravitation universelle ?",
-    "answer": "Newton",
-    "choice": "Galilée / Kepler / Pascal",
+    "question": "Comment s'appelle le grand réseau social aux bureaux modernes ?",
+    "answer": "Lifeinvader",
+    "choice": "Bleeter / Bimeo / Facade",
     "type": "general"
   },
   {
     "id": 145,
-    "question": "Quel océan baigne l’archipel des Kerguelen ?",
-    "answer": "Océan Indien",
-    "choice": "Atlantique / Pacifique / Arctique",
+    "question": "Comment s'appelle le créateur de Lifeinvader ?",
+    "answer": "Jay Norris",
+    "choice": "Lester Crest / Devin Weston / Noor Omran",
     "type": "general"
   },
   {
     "id": 146,
-    "question": "Dans quel pays se situe Angkor Wat ?",
-    "answer": "Cambodge",
-    "choice": "Laos / Thaïlande / Vietnam",
+    "question": "Comment s'appelle le smartphone avec un logo de fruit ?",
+    "answer": "iFruit",
+    "choice": "Badger / Whiz / FruitPhone",
     "type": "general"
   },
   {
     "id": 147,
-    "question": "Quelle est la capitale de l’Éthiopie ?",
-    "answer": "Addis‑Abeba",
-    "choice": "Asmara / Nairobi / Khartoum",
+    "question": "Comment s'appelle le portail web affiché sur les ordinateurs ?",
+    "answer": "Eyefind",
+    "choice": "SearchIt / GoMail / Lifeweb",
     "type": "general"
   },
   {
     "id": 148,
-    "question": "Quel poète a écrit « Les Fleurs du mal » ?",
-    "answer": "Baudelaire",
-    "choice": "Rimbaud / Verlaine / Mallarmé",
+    "question": "Comment s'appelle la chaîne d'info rouge et blanc ?",
+    "answer": "Weazel News",
+    "choice": "CNT / Frost News / Daily Vinewood",
     "type": "general"
   },
   {
     "id": 149,
-    "question": "Quel est l’acide responsable du goût des citrons ?",
-    "answer": "Citrique",
-    "choice": "Acétique / Formique / Oxalique",
+    "question": "Comment s'appelle la banque avec de petits distributeurs verts ?",
+    "answer": "Fleeca",
+    "choice": "Union Depository / Maze Bank / Lombank",
     "type": "general"
   },
   {
     "id": 150,
-    "question": "Quel philosophe a écrit « Le Contrat social » ?",
-    "answer": "Rousseau",
-    "choice": "Montesquieu / Voltaire / Diderot",
+    "question": "Comment s'appelle le grand coffre doré braqué en centre-ville ?",
+    "answer": "Union Depository",
+    "choice": "Maze Bank Tower / FIB Building / Arcadius Center",
     "type": "general"
   },
   {
     "id": 151,
-    "question": "En quelle année l’Empire romain d’Occident s’est‑il effondré ?",
-    "answer": "476",
-    "choice": "410 / 1453 / 1066",
+    "question": "Comment s'appelle la grande arène de Los Santos ?",
+    "answer": "Maze Bank Arena",
+    "choice": "Vinewood Bowl / Los Santos Forum / Galileo Hall",
     "type": "general"
   },
   {
     "id": 152,
-    "question": "Qui a découvert la planète Uranus ?",
-    "answer": "Herschel",
-    "choice": "Galilée / Huygens / Le Verrier",
+    "question": "Comment s'appelle le plus haut gratte-ciel avec un logo rouge ?",
+    "answer": "Maze Bank Tower",
+    "choice": "Arcadius Center / IAA Building / FIB Building",
     "type": "general"
   },
   {
     "id": 153,
-    "question": "Quel traité est entré en vigueur en 1993 et a fondé l’Union européenne ?",
-    "answer": "Maastricht",
-    "choice": "Lisbonne / Rome / Nice",
+    "question": "Comment s'appelle le garage #1 selon un sondage BNI ?", 
+    "answer": "Mazzari Motors",
+    "choice": "Mlad & Co / Winston Repair / Westbrook Motorsport",
     "type": "general"
   },
   {
     "id": 154,
-    "question": "Quel physicien a formulé la loi de l’induction électromagnétique ?",
-    "answer": "Faraday",
-    "choice": "Maxwell / Ampère / Hertz",
+    "question": "Comment s'appelle la corpo détenu par Dexter Weyland ?",
+    "answer": "Cerberus",
+    "choice": "Atelis / BNI",
     "type": "general"
   },
+
   {
     "id": 155,
-    "question": "Quel est l’auteur de « À la recherche du temps perdu » ?",
-    "answer": "Proust",
-    "choice": "Gide / Valéry / Aragon",
+    "question": "Quelle radio diffuse du rap old school de la côte Ouest ?",
+    "answer": "West Coast Classics",
+    "choice": "Los Santos Rock Radio / Non Stop Pop FM / Radio Mirror Park",
     "type": "general"
   },
   {
     "id": 156,
-    "question": "Quel est le plus grand désert froid du monde ?",
-    "answer": "Antarctique",
-    "choice": "Arctique / Gobi / Patagonie",
+    "question": "Quelle radio diffuse surtout des tubes pop récents ?",
+    "answer": "Non Stop Pop FM",
+    "choice": "West Coast Classics / Blue Ark / Rebel Radio",
     "type": "general"
   },
   {
     "id": 157,
-    "question": "Quel scientifique a découvert les lois de la chute des corps avant Newton ?",
-    "answer": "Galilée",
-    "choice": "Kepler / Pascal / Torricelli",
+    "question": "Quelle radio passe des sons indie et electro ?",
+    "answer": "Radio Mirror Park",
+    "choice": "Space 103.2 / Vinewood Boulevard / Channel X",
     "type": "general"
   },
   {
     "id": 158,
-    "question": "Quelle est la capitale de la Lettonie ?",
-    "answer": "Riga",
-    "choice": "Vilnius / Tallinn / Kaunas",
+    "question": "Quelle radio est consacrée au rock classique ?",
+    "answer": "Los Santos Rock Radio",
+    "choice": "Non Stop Pop FM / West Coast Classics / East Los FM",
     "type": "general"
   },
+
   {
     "id": 159,
-    "question": "Quel peintre a réalisé « Les Ménines » ?",
-    "answer": "Velázquez",
-    "choice": "Francisco de Goya / El Greco / Murillo",
+    "question": "Comment s'appelle le quartier riche avec villas et palmiers ?",
+    "answer": "Rockford Hills",
+    "choice": "Davis / Vinewood Hills / Mirror Park",
     "type": "general"
   },
   {
     "id": 160,
-    "question": "Quel poète a écrit « Une saison en enfer » ?",
-    "answer": "Rimbaud",
-    "choice": "Verlaine / Baudelaire / Apollinaire",
+    "question": "Comment s'appelle la plage avec canaux et promenade à rollers ?",
+    "answer": "Vespucci Beach",
+    "choice": "Del Perro Beach / Chumash / Paleto Bay",
     "type": "general"
   },
   {
     "id": 161,
-    "question": "Quel chimiste a proposé la théorie atomique moderne ?",
-    "answer": "Dalton",
-    "choice": "Lavoisier / Thomson / Rutherford",
+    "question": "Comment s'appelle la jetée avec une grande roue au bord de l'océan ?",
+    "answer": "Del Perro Pier",
+    "choice": "Vespucci Pier / Paleto Pier / Chumash Pier",
     "type": "general"
   },
   {
     "id": 162,
-    "question": "Quel pays a pour capitale Windhoek ?",
-    "answer": "Namibie",
-    "choice": "Botswana / Zambie / Zimbabwe",
+    "question": "Comment s'appelle le village désertique proche du lac?",
+    "answer": "Sandy Shores",
+    "choice": "Grapeseed / Paleto Bay / Harmony",
     "type": "general"
   },
   {
     "id": 163,
-    "question": "Quel est le nom de la sonde qui a survolé Pluton en 2015 ?",
-    "answer": "New Horizons",
-    "choice": "Voyager 2 / Pioneer 10 / Cassini",
+    "question": "Comment s'appelle la petite ville côtière tout au nord ?",
+    "answer": "Paleto Bay",
+    "choice": "Chumash / Grapeseed / Sandy Shores",
     "type": "general"
   },
   {
     "id": 164,
-    "question": "Quel mathématicien a fondé l’algèbre moderne ?",
-    "answer": "Viète",
-    "choice": "Cardan / Descartes / Fermat",
+    "question": "Comment s'appelle la zone agricole entre mer intérieure et autoroute ?",
+    "answer": "Grapeseed",
+    "choice": "Sandy Shores / Harmony / Great Chaparral",
     "type": "general"
   },
   {
     "id": 165,
-    "question": "Qui a écrit « Le Rouge et le Noir » ?",
-    "answer": "Stendhal",
-    "choice": "Balzac / Flaubert / Zola",
+    "question": "Comment s'appelle la grande montagne avec un téléphérique ?",
+    "answer": "Mont Chiliad",
+    "choice": "Mont Josiah / Vinewood Hills / Tataviam",
     "type": "general"
   },
   {
     "id": 166,
-    "question": "Quelle ville est la capitale du Burkina Faso ?",
-    "answer": "Ouagadougou",
-    "choice": "Bamako / Niamey / Conakry",
+    "question": "Comment s'appelle l'observatoire blanc sur les collines ?",
+    "answer": "Galileo",
+    "choice": "Vinewood / Tour de Chiliad / Centre Zancudo",
     "type": "general"
   },
   {
     "id": 167,
-    "question": "Quel est le nom de la galaxie la plus proche de la Voie lactée ?",
-    "answer": "Andromède",
-    "choice": "Nuage Magellan / Triangulum / Nébuleuse Carène",
+    "question": "Comment s'appelle l’aéroport principal de la ville ?",
+    "answer": "Los Santos International",
+    "choice": "Trevor Airfield / Sandy Shores Airfield / Paleto Airstrip",
     "type": "general"
   },
+
   {
     "id": 168,
-    "question": "Quel est l’architecte du dôme de la cathédrale de Florence ?",
-    "answer": "Brunelleschi",
-    "choice": "Donatello / Michel‑Ange / Ghiberti",
+    "question": "Comment s'appelle le gang en vert autour de Grove Street ?",
+    "answer": "The Families",
+    "choice": "Les Ballas / Los Santos Vagos / The Lost MC",
     "type": "general"
   },
   {
     "id": 169,
-    "question": "Quel philosophe a écrit « Critique de la raison pure » ?",
-    "answer": "Kant",
-    "choice": "Hegel / Schopenhauer / Locke",
+    "question": "Comment s'appelle le gang en violet ennemi de Grove Street ?",
+    "answer": "Les Ballas",
+    "choice": "The Families / Los Santos Vagos / Marabunta Grande",
     "type": "general"
   },
   {
     "id": 170,
-    "question": "Quel courant artistique est associé à Kandinsky et Mondrian ?",
-    "answer": "Abstraction",
-    "choice": "Dadaïsme / Cubisme / Surréalisme",
+    "question": "Comment s'appelle le gang hispanique en jaune ?",
+    "answer": "Los Santos Vagos",
+    "choice": "Marabunta Grande / The Families / Les Ballas",
     "type": "general"
   },
   {
     "id": 171,
-    "question": "Quel explorateur a atteint le pôle Sud en 1911 ?",
-    "answer": "Amundsen",
-    "choice": "Scott / Shackleton / Nansen",
+    "question": "Comment s'appelle le club de motards basé à Blaine County ?",
+    "answer": "The Lost MC",
+    "choice": "Route 68 Riders / Blaine Bikers / Los Santos Angels",
     "type": "general"
   },
   {
     "id": 172,
-    "question": "Quel pays possède l’ancienne cité de Petra ?",
-    "answer": "Jordanie",
-    "choice": "Syrie / Liban / Irak",
+    "question": "Comment s'appelle le culte étrange qui répète « Kifflom » ?",
+    "answer": "Programme Epsilon",
+    "choice": "Église du Chiliad / Secte de l'Alamo / Fraternité de Zancudo",
     "type": "general"
   },
   {
     "id": 173,
-    "question": "Quelle molécule est l’« hormone du stress » ?",
-    "answer": "Cortisol",
-    "choice": "Adrénaline / Dopamine / Sérotonine",
+    "question": "Comment s'appelle la société militaire privée ?",
+    "answer": "Merryweather Security",
+    "choice": "Gruppe Sechs / Ron Defense / LS Patrol",
     "type": "general"
   },
   {
     "id": 174,
-    "question": "Quel compositeur a écrit « La Flûte enchantée » ?",
-    "answer": "Mozart",
-    "choice": "Haydn / Salieri / Gluck",
+    "question": "Comment s'appelle la société de fourgons blindés verts ?",
+    "answer": "Gruppe Sechs",
+    "choice": "Fleeca Security / Maze Bank Guard / LS Armored",
     "type": "general"
   },
   {
     "id": 175,
-    "question": "Quelle ville fut la capitale de l’Empire byzantin ?",
-    "answer": "Constantinople",
-    "choice": "Athènes / Antioche / Alexandrie",
+    "question": "Comment s'appelle le film d’action dont Michael DeSanta est la star ?",
+    "answer": "Meltdown",
+    "choice": "Capolavoro / The Simian / Vinewood Heist",
     "type": "general"
   },
+
   {
     "id": 176,
-    "question": "Quel mathématicien a découvert les séries harmoniques divergentes ?",
-    "answer": "Oresme",
-    "choice": "Bernoulli / Euler / Cauchy",
+    "question": "Comment s'appelle le club de strip-tease sur Strawberry Avenue ?",
+    "answer": "Vanilla Unicorn",
+    "choice": "Bahama Mamas West / Tequila-la / Pitchers",
     "type": "general"
   },
   {
     "id": 177,
-    "question": "Quel scientifique a découvert le noyau atomique en 1911 ?",
-    "answer": "Rutherford",
-    "choice": "Bohr / Schrödinger / Planck",
+    "question": "Comment s'appelle le bar de nuit spécialisé dans les jeux video ?",
+    "answer": "Apex NightClub / Apex / Apexe NightClub / Apexe",
+    "choice": "",
     "type": "general"
   },
   {
     "id": 178,
-    "question": "Quelle dynastie a unifié la Chine en 221 av. J.‑C. ?",
-    "answer": "Qin",
-    "choice": "Han / Zhou / Tang",
+    "question": "Comment s'appelle le restaurant de vinewood ?",
+    "answer": "Château d'amour / Chateau d'amour / Château damour / Chateau damour / Château d'amoure / Chateau d'amoure / Château damoure / Chateau damoure",
+    "choice": "",
     "type": "general"
   },
   {
     "id": 179,
-    "question": "Quelle est la capitale du Kirghizistan ?",
-    "answer": "Bichkek",
-    "choice": "Achgabat / Douchanbé / Tachkent",
+    "question": "Comment s'appelle le restaurant celebre pour ces pizza ?",
+    "answer": "Lucceties / Lucheties / Luceties / lucetie / luchetie / lucetie / Luchetti's / Luccetti's / Lucetti's / Lucheti's / Luceti's / Lucceti's / Luccetties / Luchetties / Lucetties / lucettie / luchettie / lucettie /",
+    "choice": "",
     "type": "general"
   },
   {
     "id": 180,
-    "question": "Quel roman commence par « Aujourd’hui, maman est morte. » ?",
-    "answer": "L’Étranger",
-    "choice": "Peste / Nausée / Malentendu",
+    "question": "Comment s'appelle le bar perdu dans le désert de Sandy Shores ?",
+    "answer": "Yellow Jack Inn",
+    "choice": "Tequila-la / Pitchers / Hen House",
     "type": "general"
   },
   {
     "id": 181,
-    "question": "Quel est l’autre nom du « parthénon » animal des coraux ?",
-    "answer": "Polype",
-    "choice": "Zoïde / Sclère / Cnidie",
+    "question": "Comment s'appelle le label de musique asiatique ?",
+    "answer": "Triad / triade / Triad Records / triade records / triad record / triade record",
+    "choice": "",
     "type": "general"
   },
   {
     "id": 182,
-    "question": "Quel physicien a introduit la constante de Planck ?",
-    "answer": "Planck",
-    "choice": "Werner Heisenberg / Louis de Broglie / Pascual Jordan",
+    "question": "Comment s'appelle le club chique de vinewood ?",
+    "answer": "LA HAUTE / haute / lahaute",
+    "choice": "",
     "type": "general"
   },
   {
     "id": 183,
-    "question": "Quelle écrivaine est l’auteure de « Frankenstein » (1818) ?",
-    "answer": "Shelley",
-    "choice": "Radcliffe / Austen / Brontë",
+    "question": "Comment s'appelle le petit cinéma sur Vinewood Boulevard ?",
+    "answer": "Ten Cent Theater",
+    "choice": "Tivoli Cinema / Oriental Theater / Tivoli Plaza",
     "type": "general"
   },
   {
     "id": 184,
-    "question": "Quel pays a pour capitale Tbilissi ?",
-    "answer": "Géorgie",
-    "choice": "Arménie / Azerbaïdjan / Moldavie",
+    "question": "Comment s'appelle le cinéma de première avec tapis rouge ?",
+    "answer": "Oriental Theater",
+    "choice": "Ten Cent Theater / Tivoli Cinema / Vinewood Theater",
     "type": "general"
   },
   {
     "id": 185,
-    "question": "Quel est le nom de la première femme dans l’espace (1963) ?",
-    "answer": "Terechkova",
-    "choice": "Ride / Savitskaïa / Jemison",
+    "question": "Comment s'appelle le disco-club des docks ?",
+    "answer": "77 / Club 77 / club77 / club 7",
+    "choice": "",
     "type": "general"
   },
   {
     "id": 186,
-    "question": "Quel mouvement économique est associé à Adam Smith ?",
-    "answer": "Libéralisme",
-    "choice": "Mercantilisme / Physiocratie / Keynésianisme",
+    "question": "Comment s'appelle le supermarché ouvert 24h/24 ?",
+    "answer": "24/7",
+    "choice": "LTD Gasoline / Rob's Liquor / Ammu-Nation",
     "type": "general"
   },
   {
     "id": 187,
-    "question": "Quel est le point fixe de l’échelle de pH égal à 7 à 25 °C ?",
-    "answer": "Neutralité",
-    "choice": "Acidité / Basicité / Alcalinité",
+    "question": "Comment s'appelle la station-service bleu et rouge ?",
+    "answer": "LTD Gasoline",
+    "choice": "RON Oil / Globe Oil / Xero Gas",
     "type": "general"
   },
   {
     "id": 188,
-    "question": "Quel roman de Laclos met en scène Valmont et Merteuil ?",
-    "answer": "Liaisons dangereuses",
-    "choice": "Princesse de Clèves / Manon Lescaut / Adolphe",
+    "question": "Comment s'appelle le magasin d’armes en ville ?",
+    "answer": "Ammu-Nation",
+    "choice": "Los Santos Guns / Blaine Armory / Ron Defense Shop",
     "type": "general"
   },
   {
     "id": 189,
-    "question": "Quel mathématicien a théorisé les graphes de Königsberg ?",
-    "answer": "Leonhard Euler",
-    "choice": "Gauss / Leibniz / Laplace",
+    "question": "Comment s'appelle le magasin de vêtements haute couture ?",
+    "answer": "Darnell",
+    "choice": "Ponsonbys / Binco / Discount Store",
     "type": "general"
   },
   {
     "id": 190,
-    "question": "Quel État américain est surnommé « The Last Frontier » ?",
-    "answer": "Alaska",
-    "choice": "Montana / Wyoming / Dakota du Nord",
+    "question": "Comment s'appelle le magasin de vêtements ?",
+    "answer": "Ponsonbys",
+    "choice": "Suburban / Binco / Discount Store",
     "type": "general"
   },
   {
     "id": 191,
-    "question": "Dans quel pays se trouve le mont Aconcagua ?",
-    "answer": "Argentine",
-    "choice": "Chili / Bolivie / Pérou",
+    "question": "Comment s'appelle le magasin de vêtements pas cher ?",
+    "answer": "Binco",
+    "choice": "Suburban / Ponsonbys / Discount Store",
     "type": "general"
   },
   {
     "id": 192,
-    "question": "Quel dramaturge grec a écrit « Œdipe roi » ?",
-    "answer": "Sophocle",
-    "choice": "Eschyle / Euripide / Aristophane",
+    "question": "Comment s'appelle la brasserie de bière à Paleto Bay ?",
+    "answer": "Pisswasser Brewery",
+    "choice": "Logger Factory / Redwood Brewery / Fleeca Brew",
     "type": "general"
   },
   {
     "id": 193,
-    "question": "Quel est le nom de la ceinture de petits corps entre Mars et Jupiter ?",
-    "answer": "Ceinture d’astéroïdes",
-    "choice": "Nuage de Oort / Ceinture de Kuiper / Torus circumsolaire",
+    "question": "Comment s'appelle la base militaire au bord de la côte ?",
+    "answer": "Fort Zancudo",
+    "choice": "Fort Chiliad / Fort Paleto / Fort Cassidy",
     "type": "general"
   },
   {
     "id": 194,
-    "question": "Quel biologiste a proposé la sélection naturelle en 1859 ?",
-    "answer": "Charles Darwin",
-    "choice": "Lamarck / Wallace / Huxley",
+    "question": "Comment s'appelle la prison près de l’autoroute du désert ?",
+    "answer": "Bolingbroke Penitentiary",
+    "choice": "Sandy Shores Jail / Zancudo Prison / Los Santos Pen",
     "type": "general"
   },
   {
     "id": 195,
-    "question": "Quel est le nom du grand poème épique persan de Ferdowsi ?",
-    "answer": "Shâhnâmeh",
-    "choice": "Divân / Masnavî / Gulistan",
+    "question": "Comment s'appelle l’autoroute qui traverse le désert vers le nord ?",
+    "answer": "Route 68",
+    "choice": "Great Ocean Highway / Senora Freeway / Paleto Highway",
     "type": "general"
   },
   {
     "id": 196,
-    "question": "Quel lac est le plus profond du monde ?",
-    "answer": "Baïkal",
-    "choice": "Titicaca / Tanganyika / Supérieur",
+    "question": "Comment s'appelle la grande autoroute côtière au nord-ouest ?",
+    "answer": "Great Ocean Highway",
+    "choice": "Route 68 / Senora Freeway / Del Perro Freeway",
     "type": "general"
   },
   {
     "id": 197,
-    "question": "Quel philosophe a écrit « Le Banquet » ?",
-    "answer": "Platon",
-    "choice": "Aristote / Socrate / Épicure",
+    "question": "Comment s'appelle l’autoroute principale autour de l'Alamo Sea ?",
+    "answer": "Senora Freeway",
+    "choice": "Great Ocean Highway / Route 68 / Del Perro Freeway",
     "type": "general"
   },
   {
     "id": 198,
-    "question": "Quelle capitale européenne est traversée par la Sava et le Danube ?",
-    "answer": "Belgrade",
-    "choice": "Bratislava / Budapest / Vienne",
+    "question": "Comment s'appelle la colline avec les grandes lettres blanches ?",
+    "answer": "Vinewood Hills",
+    "choice": "Rockford Hills / Tataviam Hills / Chiliad Hills",
     "type": "general"
   },
   {
     "id": 199,
-    "question": "Quelle reine d’Égypte s’est suicidée en 30 av. J.‑C. ?",
-    "answer": "Cléopâtre VII",
-    "choice": "Néfertiti / Hatchepsout / Cléopâtre VI",
+    "question": "Comment s'appelle le parc près des canaux ?",
+    "answer": "Vespucci Canals Park",
+    "choice": "Legion Square / Mirror Park / Del Perro Plaza",
     "type": "general"
   },
   {
     "id": 200,
-    "question": "Quel chimiste a isolé le radium avec Marie Curie ?",
-    "answer": "Curie",
-    "choice": "Becquerel / Curie / Soddy",
+    "question": "Comment s'appelle la place avec une fontaine au centre-ville ?",
+    "answer": "Legion Square",
+    "choice": "Pillbox Plaza / Mission Row Square / Place des cubes",
+    "type": "general"
+  },
+  {
+    "id": 201,
+    "question": "Comment s'appelle le quartier avec lac artificiel et hipsters ?",
+    "answer": "Mirror Park",
+    "choice": "Rockford Hills / Vespucci Canals / Downtown Vinewood",
+    "type": "general"
+  },
+  {
+    "id": 202,
+    "question": "Comment s'appelle la société de taxis de la ville ?",
+    "answer": "Downtown Cab Co.",
+    "choice": "Los Santos Taxi / Vinewood Cabs / City Cab LS",
+    "type": "general"
+  },
+  {
+    "id": 203,
+    "question": "Comment s'appelle la société de fret de Trevor ?",
+    "answer": "Trevor Phillips Enterprises",
+    "choice": "Sandy Air Freight / Zancudo Cargo / Chiliad Air",
+    "type": "general"
+  },
+  {
+    "id": 204,
+    "question": "Comment s'appelle l'emission TV qui découvre des talents ?",
+    "answer": "Fame or Shame",
+    "choice": "Chattersphere TV / Jimmy Boston Show / Vinewood Night",
+    "type": "general"
+  },
+  {
+    "id": 205,
+    "question": "Comment s'appelle la parodie de réseau social de microblog ?",
+    "answer": "Bleeter",
+    "choice": "Lifeinvader / FriendRequest / Facebird",
+    "type": "general"
+  },
+  {
+    "id": 206,
+    "question": "Comment s'appelle le nuage rose qui survole Los Santos ?",
+    "answer": "Purpulonimbus",
+    "choice": "Rosecirrus / Deeppurple / Fuchsiacloud",
+    "type": "general"
+  },
+  {
+    "id": 207,
+    "question": "Comment s'appelle le quartier de Chava Lévy ?",
+    "answer": "Rose Crown",
+    "choice": "Golden heights / Verdant Empire / Red forge",
+    "type": "general"
+  },
+  {
+    "id": 208,
+    "question": "Comment s'appelle le fixer du quartier Rose Crown ?",
+    "answer": "Chava Lévy",
+    "choice": "Tyler Stratton / Gino Lucci / Stanislas Sokolov",
+    "type": "general"
+  },
+  {
+    "id": 209,
+    "question": "Comment s'appelle le quartier de Tyler Stratton ?",
+    "answer": "Golden heights",
+    "choice": "Rose Crown / Lotus Quarter / Iron Tower",
+    "type": "general"
+  },
+  {
+    "id": 210,
+    "question": "Comment s'appelle le fixer du quartier Golden heights ?",
+    "answer": "Tyler Stratton",
+    "choice": "Chava Lévy / Gino Lucci / Aziel Orozco",
+    "type": "general"
+  },
+  {
+    "id": 211,
+    "question": "Comment s'appelle le quartier de Gino Lucci ?",
+    "answer": "Verdant Empire",
+    "choice": "Golden heights / Barrio Azul / Harbor Block",
+    "type": "general"
+  },
+  {
+    "id": 212,
+    "question": "Comment s'appelle le fixer du quartier Verdant Empire ?",
+    "answer": "Gino Lucci",
+    "choice": "Stanislas Sokolov / Sweet Westbrook / Richard Moneroe",
+    "type": "general"
+  },
+  {
+    "id": 213,
+    "question": "Comment s'appelle le quartier de Stanislas Sokolov ?",
+    "answer": "Red forge",
+    "choice": "Verdant Empire / Iron Tower / Lotus Quarter",
+    "type": "general"
+  },
+  {
+    "id": 214,
+    "question": "Comment s'appelle le fixer du quartier Red forge ?",
+    "answer": "Stanislas Sokolov",
+    "choice": "Aziel Orozco / Kanji Huang / Chava Lévy",
+    "type": "general"
+  },
+  {
+    "id": 215,
+    "question": "Comment s'appelle le quartier de Kanji Huang ?",
+    "answer": "Lotus Quarter",
+    "choice": "Red forge / Rose Crown / Harbor Block",
+    "type": "general"
+  },
+  {
+    "id": 216,
+    "question": "Comment s'appelle le fixer du quartier Lotus Quarter ?",
+    "answer": "Kanji Huang",
+    "choice": "Tyler Stratton / Richard Moneroe / Sweet Westbrook",
+    "type": "general"
+  },
+  {
+    "id": 217,
+    "question": "Comment s'appelle le quartier de Richard Moneroe ?",
+    "answer": "Iron Tower",
+    "choice": "Barrio Azul / Golden heights / Red forge",
+    "type": "general"
+  },
+  {
+    "id": 218,
+    "question": "Comment s'appelle le fixer du quartier Iron Tower ?",
+    "answer": "Richard Moneroe",
+    "choice": "Kanji Huang / Gino Lucci / Tyler Stratton",
+    "type": "general"
+  },
+  {
+    "id": 219,
+    "question": "Comment s'appelle le quartier de Aziel Orozco ?",
+    "answer": "Barrio Azul",
+    "choice": "Iron Tower / Verdant Empire / Lotus Quarter",
+    "type": "general"
+  },
+  {
+    "id": 220,
+    "question": "Comment s'appelle le fixer du quartier Barrio Azul ?",
+    "answer": "Aziel Orozco",
+    "choice": "Sweet Westbrook / Chava Lévy / Stanislas Sokolov",
+    "type": "general"
+  },
+  {
+    "id": 221,
+    "question": "Comment s'appelle le quartier de Sweet Westbrook ?",
+    "answer": "Harbor Block",
+    "choice": "Rose Crown / Golden heights / Barrio Azul",
+    "type": "general"
+  },
+  {
+    "id": 222,
+    "question": "Comment s'appelle le fixer du quartier Harbor Block ?",
+    "answer": "Sweet Westbrook",
+    "choice": "Aziel Orozco / Richard Moneroe / Gino Lucci",
     "type": "general"
   }
+
  ];
