@@ -877,6 +877,8 @@ window.QUESTIONS_GENERAL = [
     "choice": "Cœur / Estomac / Foie",
     "type": "general"
   }
+];
+
 window.QUESTIONS_GTA = [
   {
     "id": 126,
