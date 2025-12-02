@@ -1,5 +1,4 @@
 window.QUESTIONS.PERSONAL = [
-  [
   {
     "id": 1,
     "question": "Votre avis sur le LSPD ?",
@@ -1721,5 +1720,4 @@ window.QUESTIONS.PERSONAL = [
   "choice": "",
   "type": "personnel"
 }
-
 ];
