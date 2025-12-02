@@ -1,5 +1,5 @@
 window.QUESTIONS_GENERAL = [
-   {
+  {
     "id": 1,
     "question": "Quel est la capitale de la France?",
     "answer": "Paris / Pari / paris",
@@ -20,7 +20,6 @@ window.QUESTIONS_GENERAL = [
     "choice": "",
     "type": "general"
   },
-
   {
     "id": 4,
     "question": "Quel océan borde la côte ouest de l'Amérique ?",
@@ -700,8 +699,6 @@ window.QUESTIONS_GENERAL = [
     "choice": "",
     "type": "general"
   },
-
-
   {
     "id": 101,
     "question": "Qui a écrit « Harry Potter » ?",
@@ -876,10 +873,7 @@ window.QUESTIONS_GENERAL = [
     "answer": "Cerveau",
     "choice": "Cœur / Estomac / Foie",
     "type": "general"
-  }
-];
-
-window.QUESTIONS_GTA = [
+  },
   {
     "id": 126,
     "question": "Comment s'appelle la boisson gazeuse rouge ?",
@@ -1006,7 +1000,6 @@ window.QUESTIONS_GTA = [
     "choice": "Maibatsu / Western / Principe",
     "type": "general"
   },
-
   {
     "id": 144,
     "question": "Comment s'appelle le grand réseau social aux bureaux modernes ?",
@@ -1072,7 +1065,7 @@ window.QUESTIONS_GTA = [
   },
   {
     "id": 153,
-    "question": "Comment s'appelle le garage #1 selon un sondage BNI ?", 
+    "question": "Comment s'appelle le garage #1 selon un sondage BNI ?",
     "answer": "Mazzari Motors",
     "choice": "Mlad & Co / Winston Repair / Westbrook Motorsport",
     "type": "general"
@@ -1084,7 +1077,6 @@ window.QUESTIONS_GTA = [
     "choice": "Atelis / BNI",
     "type": "general"
   },
-
   {
     "id": 155,
     "question": "Quelle radio diffuse du rap old school de la côte Ouest ?",
@@ -1113,7 +1105,6 @@ window.QUESTIONS_GTA = [
     "choice": "Non Stop Pop FM / West Coast Classics / East Los FM",
     "type": "general"
   },
-
   {
     "id": 159,
     "question": "Comment s'appelle le quartier riche avec villas et palmiers ?",
@@ -1177,7 +1168,6 @@ window.QUESTIONS_GTA = [
     "choice": "Trevor Airfield / Sandy Shores Airfield / Paleto Airstrip",
     "type": "general"
   },
-
   {
     "id": 168,
     "question": "Comment s'appelle le gang en vert autour de Grove Street ?",
@@ -1234,7 +1224,6 @@ window.QUESTIONS_GTA = [
     "choice": "Capolavoro / The Simian / Vinewood Heist",
     "type": "general"
   },
-
   {
     "id": 176,
     "question": "Comment s'appelle le club de strip-tease sur Strawberry Avenue ?",
@@ -1564,5 +1553,4 @@ window.QUESTIONS_GTA = [
     "choice": "Aziel Orozco / Richard Moneroe / Gino Lucci",
     "type": "general"
   }
-
- ];
+];
