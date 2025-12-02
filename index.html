@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>ANTIACORE</title>
+  <title>Angry Flappy: Monsters & Quiz Battles</title>
   <link href="style.css" rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Silkscreen:wght@400;700&amp;display=swap"
@@ -56,7 +56,7 @@
             <p class="player-name top-menu-p" id="playerName"></p>
           </div>
           <div class="battle-top-text-container">
-            <p class="player-power top-menu-p"> Joueur : </p>
+            <p class="player-power top-menu-p"> Power : </p>
             <p class="player-power top-menu-p" id="playerPower"></p>
           </div>
           <div class="battle-top-text-container">
@@ -82,7 +82,7 @@
             <p class="monster-hp top-menu-p" id="monsterHp"></p>
           </div>
           <div class="battle-top-text-container">
-            <p class="monster-capture top-menu-p"> Taux Capture : </p>
+            <p class="monster-capture top-menu-p"> Capture Rate : </p>
             <p class="monster-capture top-menu-p" id="captureRate"></p>
           </div>
         </div>
@@ -94,11 +94,11 @@
         <div class="dialog-row">
           <input class="pixel-input" id="battleAnswer" name="answer" placeholder="Answer here" required=""
             type="text" />
-          <button class="pixel-btn success" id="answerBtn">VALIDER</button>
-          <button class="pixel-btn danger" id="fleeBtn" type="button">FUIR</button>
+          <button class="pixel-btn success" id="answerBtn">Answer</button>
+          <button class="pixel-btn danger" id="fleeBtn" type="button">Flee</button>
         </div>
         <div class="dialog-row">
-          <button class="pixel-btn capture-button primary" id="captureBtn" type="button">CAPTURER</button>
+          <button class="pixel-btn capture-button primary" id="captureBtn" type="button">Capture (1 ball)</button>
           <span class="hint" id="captureHint"></span>
         </div>
       </div>
@@ -119,18 +119,18 @@
           <button class="btn gb-btn" id="highscoreBtn" style="margin-top:8px">HIGHSCORE</button>
         </div>
         <div class="row center" style="margin-top:8px">
-          <button class="btn gb-btn" id="startMusicToggleBtn">DESACTIVER LA MUSIQUE</button>
+          <button class="btn gb-btn" id="startMusicToggleBtn">Désactiver la musique</button>
         </div>
       </div>
     </div>
     <div class="overlay synth-bg" id="corruptOverlay">
       <div class="panel pixel-panel gb-panel">
-        <h2 class="gb-h2" id="corruptTitle">MONSTRE CAPTUREE</h2>
+        <h2 class="gb-h2" id="corruptTitle">Corrupted Monster</h2>
         <div class="corrupt-visual" id="corruptVisual" style="display:flex;justify-content:center;margin:8px 0 12px">
         </div>
         <div class="row center">
-          <button class="btn gb-btn monster-delete" id="trashBtn">DETRURE</button>
-          <button class="btn gb-btn monster-save" id="saveBtn">UTILISER 0 BALLES</button>
+          <button class="btn gb-btn monster-delete" id="trashBtn">DELETE</button>
+          <button class="btn gb-btn monster-save" id="saveBtn">USE 0 BALLS</button>
         </div>
       </div>
     </div>
@@ -154,38 +154,38 @@
         <div class="row" id="sortControls" style="margin:10px 0;">
           <select class="sortSel" id="sortBy">
             <option value="alpha">Sort: Alphabetical</option>
-            <option value="level">Sort: Par niveau</option>
+            <option value="level">Sort: Overall level</option>
             <option value="power">Sort: Power</option>
             <option value="hp">Sort: HP</option>
           </select>
           <select class="sortSel" id="sortDir">
-            <option value="asc">Ordre: Asc</option>
-            <option value="desc">Ordrer: Desc</option>
+            <option value="asc">Order: Asc</option>
+            <option value="desc">Order: Desc</option>
           </select>
         </div>
-        <h3 class="gb-h3">MONSTRO-DEX</h3>
+        <h3 class="gb-h3">Captured Collection</h3>
         <div class="dex" id="pokedex"></div>
         <div class="row center">
-          <button class="btn gb-btn" id="retryBtn">REESAYER SEUL</button>
-          <button class="btn gb-btn ghost" id="sendBtnOver">ENVOYER LE MONSTE</button>
+          <button class="btn gb-btn" id="retryBtn">RETRY WITHOUT MONSTER</button>
+          <button class="btn gb-btn ghost" id="sendBtnOver">SEND MONSTER</button>
           <button class="btn gb-btn" id="highscoreBtnOver">HIGHSCORE</button>
-          <button class="btn gb-btn" id="gameOverMusicToggleBtn">DESACTIVER LA MUSIQUE</button>
+          <button class="btn gb-btn" id="gameOverMusicToggleBtn">Désactiver la musique</button>
         </div>
       </div>
     </div>
     <div class="personal-answers-container" id="personalAnswersContainer">
       <div class="panel pixel-panel gb-panel">
-        <h2 class="gb-h2">Reponse question personnel</h2>
+        <h2 class="gb-h2">Personal Questions Answers</h2>
         <div class="answer-title-container">
           <p class="answer-title"> Questions </p>
-          <p class="answer-title"> Reponse </p>
+          <p class="answer-title"> Answers </p>
         </div>
         <div class="answers-list-container" id="answersList">
            <div class="questions-container" id="questionsContainer"></div>
            <div class="answers-container" id="answersContainer"></div>
         </div>
         <div class="row center" style="margin-top:10px">
-          <button class="btn gb-btn " id="closePersonalBtn">FERMER</button>
+          <button class="btn gb-btn " id="closePersonalBtn">CLOSE</button>
         </div>
       </div>
     </div>
