@@ -153,12 +153,12 @@
       <h2 class="gb-h2 pixel-title">HIGHSCORE</h2>
       <table class="gb-table" style="width:100%">
         <thead>
-          <tr><th>#</th><th>Player</th><th>Distance</th><th>Captures</th><th>Score</th></tr>
+          <tr><th>#</th><th>Joueur</th><th>Distance</th><th>Captures</th><th>Score</th></tr>
         </thead>
         <tbody id="scoreBoardTableBody"></tbody>
       </table>
       <div class="close-row">
-        <button id="closeHighscoreBtn" class="btn gb-btn">CLOSE</button>
+        <button id="closeHighscoreBtn" class="btn gb-btn">FERMER</button>
       </div>
       `;
     wrap.appendChild(panel);

@@ -1280,7 +1280,7 @@ function startBattleIfCollision(mon) {
     // Auto-end battle when monster HP reaches 0
     try {
       if (battle && battle.hp <= 0) {
-        if (captureHint) captureHint.textContent = "Monster defeated!";
+        if (captureHint) captureHint.textContent = "Monstre vaincu !";
         // Prevent further input
         if (answerBtn) answerBtn.disabled = true;
         if (fleeBtnEl) fleeBtnEl.disabled = true;
@@ -1313,7 +1313,7 @@ function startBattleIfCollision(mon) {
       if (typeof updateHUD === 'function') updateHUD();
       try {
         const captureHint = document.getElementById("captureHint");
-        if (captureHint) captureHint.textContent = "Victory! +½ cœur";
+        if (captureHint) captureHint.textContent = "Victoire ! +½ cœur";
       } catch(e){}
     }
 
@@ -1372,7 +1372,7 @@ function startBattleIfCollision(mon) {
   
 function pickQuestion() {
   const unanswered = questions.filter(q => !answeredQuestionIds.includes(q.id));
-  if (unanswered.length === 0) return "No more questions!";
+  if (unanswered.length === 0) return "Plus de questions !";
 
   const gen = unanswered.filter(q => qType(q.type) === "general");
   const per = unanswered.filter(q => qType(q.type) === "personnel");
@@ -1397,7 +1397,7 @@ function pickQuestion() {
     if (pool.length === 0) pool = unanswered; // final fallback
   }
 
-  if (pool.length === 0) return "No more questions!";
+  if (pool.length === 0) return "Plus de questions !";
 
   const idx = Math.floor(Math.random() * pool.length);
   const chosen = pool[idx];

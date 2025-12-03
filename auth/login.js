@@ -4,6 +4,38 @@
 // Shown AFTER the BNI splash has finished.
 
 (function(){
+  // Session storage key for persisting login
+  const SESSION_KEY = 'AF_session';
+
+  // Check if we have a saved session
+  function getSavedSession() {
+    try {
+      const raw = localStorage.getItem(SESSION_KEY);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Save session to localStorage
+  function saveSession(creds) {
+    try {
+      localStorage.setItem(SESSION_KEY, JSON.stringify(creds));
+    } catch (e) {
+      console.warn('Could not save session', e);
+    }
+  }
+
+  // Clear saved session (for logout)
+  function clearSession() {
+    try {
+      localStorage.removeItem(SESSION_KEY);
+    } catch (e) {
+      console.warn('Could not clear session', e);
+    }
+  }
+
   // Build overlay UI
 function ensureStyles(){
   if (document.getElementById('af-login-style')) return;
@@ -233,6 +265,9 @@ function ensureStyles(){
           const profile = await window.AF_SaveManager.useProfile({ firstName, lastName, fullName });
           window.__PROFILE__ = profile; // expose
 
+          // Save session for auto-login on next visit
+          saveSession({ firstName, lastName, password: creds.password });
+
           // Synchronise les stats serveur -> stockage local du profil
           try{
             const stats = account.stats || {};
@@ -286,6 +321,103 @@ function ensureStyles(){
     });
   }
 
+  // Try to auto-login with saved session
+  async function tryAutoLogin() {
+    const session = getSavedSession();
+    if (!session || !session.firstName || !session.lastName || !session.password) {
+      return false;
+    }
+
+    if (!window.AF_SaveManager) {
+      return false;
+    }
+
+    try {
+      const payload = {
+        firstName: session.firstName,
+        lastName: session.lastName,
+        password: session.password
+      };
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!result || !result.ok) {
+        // Session is invalid, clear it
+        clearSession();
+        return false;
+      }
+
+      const account = result.account || {};
+      const firstName = account.firstName || session.firstName;
+      const lastName = account.lastName || session.lastName;
+      const fullName = account.fullName || `${firstName} ${lastName}`.trim();
+
+      const profile = await window.AF_SaveManager.useProfile({ firstName, lastName, fullName });
+      window.__PROFILE__ = profile;
+
+      // Sync stats from server
+      try {
+        const stats = account.stats || {};
+        if (typeof localStorage !== 'undefined') {
+          if (stats.bestScore != null) {
+            localStorage.setItem('angryflappy_bestscore', String(stats.bestScore));
+          }
+          if (stats.bestDistance != null) {
+            localStorage.setItem('angryflappy_high', String(stats.bestDistance));
+          }
+          if (stats.bestCaptures != null) {
+            localStorage.setItem('angryflappy_bestcaprun', String(stats.bestCaptures));
+          }
+          if (Array.isArray(stats.collection)) {
+            localStorage.setItem('angryflappy_collection', JSON.stringify(stats.collection));
+          }
+        }
+      } catch (e) { console.warn('Sync account->local error', e); }
+
+      // Update UI counters if present
+      try {
+        const best = Number(localStorage.getItem('angryflappy_bestscore') || 0);
+        const el = document.getElementById('bestScore'); if (el) el.textContent = String(best);
+        const balls = Number(localStorage.getItem('angryflappy_balls') || 0);
+        const bStart = document.getElementById('ballsStart'); if (bStart) bStart.textContent = String(balls);
+      } catch (e) { }
+
+      window.dispatchEvent(new CustomEvent('af:login:done', { detail: { profile, account } }));
+      return true;
+    } catch (e) {
+      console.error('Auto-login error', e);
+      clearSession();
+      return false;
+    }
+  }
+
+  // Logout function
+  function logout() {
+    clearSession();
+    // Clear profile state
+    window.__PROFILE__ = null;
+    if (window.AF_SaveManager) {
+      window.AF_SaveManager.profile = null;
+      window.AF_SaveManager.cache = {};
+    }
+    // Reload the page to show login screen
+    window.location.reload();
+  }
+
+  // Modified showLogin to check for saved session first
+  async function showLoginOrAutoLogin() {
+    const autoLoggedIn = await tryAutoLogin();
+    if (!autoLoggedIn) {
+      return showLogin();
+    }
+    return window.__PROFILE__;
+  }
+
   // Public API (global)
-  window.AF_showLogin = showLogin;
+  window.AF_showLogin = showLoginOrAutoLogin;
+  window.AF_logout = logout;
+  window.AF_clearSession = clearSession;
 })();
