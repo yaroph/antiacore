@@ -14,36 +14,36 @@
 
 <body>
   <audio id="siteIntroAudio" src="assets/audio/intro_site.mp3" preload="auto" autoplay playsinline></audio>
-  <div id="hudWrap">
-    <div id="hud">
-      <div style="display:flex;align-items:center;gap:8px">
-        <div aria-label="lives" class="pixel-hud-left" id="lives"></div>
-        <div id="hudPower" title="Power"><span>⚡</span> <b id="hudPowerVal">0</b></div>
-      </div>
-      <div aria-live="polite" class="pixel-hud-center" id="score" title="Distance">0</div>
-      <div aria-label="capture balls" class="pixel-hud-right" id="balls" title="Capture balls">
-        <svg aria-hidden="true" class="ballIcon" height="22" viewbox="0 0 64 64" width="22">
-          <defs>
-            <radialgradient cx="50%" cy="50%" id="gGlow" r="50%">
-              <stop offset="0%" stop-color="#00fff0" stop-opacity="0.9"></stop>
-              <stop offset="60%" stop-color="#00d4ff" stop-opacity="0.7"></stop>
-              <stop offset="100%" stop-color="#00a3ff" stop-opacity="0.0"></stop>
-            </radialgradient>
-            <lineargradient id="gRing" x1="0%" x2="100%" y1="0%" y2="100%">
-              <stop offset="0%" stop-color="#66fff9"></stop>
-              <stop offset="50%" stop-color="#a067ff"></stop>
-              <stop offset="100%" stop-color="#ff4dbe"></stop>
-            </lineargradient>
-          </defs>
-          <circle cx="32" cy="32" fill="url(#gGlow)" r="22"></circle>
-          <circle cx="32" cy="32" fill="none" r="15" stroke="url(#gRing)" stroke-width="6"></circle>
-          <circle cx="32" cy="32" fill="#ffffff" r="3"></circle>
-        </svg>
-        <span id="ballsCount">0</span>
+  <div id="gameWrap">
+    <div id="hudWrap">
+      <div id="hud">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div aria-label="lives" class="pixel-hud-left" id="lives"></div>
+          <div id="hudPower" title="Power"><span>⚡</span> <b id="hudPowerVal">0</b></div>
+        </div>
+        <div aria-live="polite" class="pixel-hud-center" id="score" title="Distance">0</div>
+        <div aria-label="capture balls" class="pixel-hud-right" id="balls" title="Capture balls">
+          <svg aria-hidden="true" class="ballIcon" height="22" viewbox="0 0 64 64" width="22">
+            <defs>
+              <radialgradient cx="50%" cy="50%" id="gGlow" r="50%">
+                <stop offset="0%" stop-color="#00fff0" stop-opacity="0.9"></stop>
+                <stop offset="60%" stop-color="#00d4ff" stop-opacity="0.7"></stop>
+                <stop offset="100%" stop-color="#00a3ff" stop-opacity="0.0"></stop>
+              </radialgradient>
+              <lineargradient id="gRing" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#66fff9"></stop>
+                <stop offset="50%" stop-color="#a067ff"></stop>
+                <stop offset="100%" stop-color="#ff4dbe"></stop>
+              </lineargradient>
+            </defs>
+            <circle cx="32" cy="32" fill="url(#gGlow)" r="22"></circle>
+            <circle cx="32" cy="32" fill="none" r="15" stroke="url(#gRing)" stroke-width="6"></circle>
+            <circle cx="32" cy="32" fill="#ffffff" r="3"></circle>
+          </svg>
+          <span id="ballsCount">0</span>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="gameWrap">
     <canvas aria-label="Angry Flappy Game" height="768" id="game" width="768"></canvas>
     <div class="battle-bg" id="battleBg"></div>
     <div id="pokedexStart" style="display:none"></div>
