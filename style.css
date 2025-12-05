@@ -4,11 +4,12 @@
 :root{
   --neo-bg: #060a13;
   --neo-panel: rgba(8,14,24,.65);
-  --neo-border: #0ff;            
-  --neo-border-2: #8aff00;       
-  --neo-accent: #ff2eac;        
+  --neo-border: #0ff;
+  --neo-border-2: #8aff00;
+  --neo-accent: #ff2eac;
   --neo-text: #e8f7ff;
   --neo-muted: #8aa6c7;
+  --square-size: min(100vw, 100vh);
 }
 html,
 body {
@@ -19,16 +20,30 @@ body {
   color: var(--ink);
 }
 body {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Square viewport container - constrains entire site to a square */
+#squareViewport {
+  width: var(--square-size);
+  height: var(--square-size);
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   background: radial-gradient(
     1200px 800px at 20% 10%,
     #12224a 0%,
     #0c1230 50%,
     #07081a 100%
   );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  box-shadow: 0 0 60px rgba(0, 255, 255, 0.15), 0 0 120px rgba(0, 0, 0, 0.8);
 }
 /* ===== NEON BUTTONS + CLEAN LAYOUT ===== */
 
@@ -168,13 +183,18 @@ body {
 }
 #gameWrap {
   position: relative;
-  width: min(95vw, 900px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #game {
   display: block;
-  width: min(95vw, 900px);
-  height: auto;
-  max-height: 95vh;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   aspect-ratio: 1/1;
   box-shadow: 0 10px 30px var(--shadow);
   border-radius: 0;
@@ -194,11 +214,11 @@ canvas {
 }
 
 #hudWrap {
-  position: fixed;
+  position: absolute;
   bottom: 6px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(900px, 95vw);
+  width: 95%;
   pointer-events: none;
   z-index: 20;
 }
@@ -248,11 +268,11 @@ canvas {
   filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.2));
 }
 body.in-battle #hudWrap {
-  position: fixed;
+  position: absolute;
   bottom: 6px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(900px, 95vw);
+  width: 95%;
   pointer-events: none;
   z-index: 20;
 }
@@ -260,7 +280,7 @@ body.in-battle #hudWrap {
 .overlay{ background: radial-gradient(1000px 700px at 50% 10%, rgba(10,18,30,.65), rgba(3,6,12,.88)); }
 
 .overlay {
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   display: none;
@@ -784,13 +804,13 @@ img {
 }
 
 .personal-answers-container {
-  display: none; 
-  position: fixed;
+  display: none;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 9999;
   justify-content: center;
   align-items: center;
