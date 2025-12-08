@@ -183,7 +183,7 @@ export default async (req, context) => {
 
     const { account } = await findAccountByName(firstName, lastName);
     if (!account){
-      return json(404, { ok:false, error: "ACCOUNT_NOT_FOUND" });
+      return json(404, { ok:false, error: "NOT_FOUND" });
     }
 
     const { hash } = hashPassword(password, account.passwordSalt);
@@ -208,7 +208,7 @@ export default async (req, context) => {
 
     const { index, account, list } = await findAccountByName(firstName, lastName);
     if (!account) {
-      return json(404, { ok:false, error: "ACCOUNT_NOT_FOUND" });
+      return json(404, { ok:false, error: "NOT_FOUND" });
     }
 
     const now = Date.now();

@@ -215,10 +215,12 @@ function ensureStyles(){
             let msg = 'Erreur de connexion.';
             if (mode === 'register' && code === 'ACCOUNT_EXISTS'){
               msg = 'Un compte existe déjà avec ce prénom et ce nom.';
-            } else if (mode === 'login' && code === 'NOT_FOUND'){
+            } else if (mode === 'login' && (code === 'NOT_FOUND' || code === 'ACCOUNT_NOT_FOUND')){
               msg = 'Aucun compte trouvé avec ce prénom et ce nom.';
             } else if (mode === 'login' && code === 'BAD_PASSWORD'){
               msg = 'Mot de passe incorrect.';
+            } else if (code === 'MISSING_FIELDS'){
+              msg = 'Merci de remplir prénom, nom et mot de passe.';
             }
             err.textContent = msg;
             err.style.display = 'block';
