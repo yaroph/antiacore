@@ -4,8 +4,14 @@
   <meta charset="utf-8">
   <title>Base de données joueurs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     /* Custom scrollbar styling */
     html {
       scrollbar-width: thin;
@@ -28,70 +34,148 @@
       background: linear-gradient(180deg, #00ffa3, #00e5ff);
     }
 
-    body {
-      background-color: #050814;
-      color: #f5f5f5;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
+    html, body {
       min-height: 100vh;
-      overflow-y: auto;
+      width: 100%;
     }
-    .db-container {
-      max-width: 1000px;
-      margin: 40px auto 60px;
-      padding: 20px 24px 40px;
-      background: rgba(9, 14, 40, 0.95);
+
+    body {
+      background: radial-gradient(ellipse at 20% 10%, #12224a 0%, #0c1230 50%, #050814 100%);
+      color: #f5f5f5;
+      font-family: 'Silkscreen', 'Press Start 2P', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .db-page {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 40px);
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .db-header {
+      text-align: center;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: rgba(9, 14, 40, 0.8);
       border-radius: 16px;
-      box-shadow: 0 0 32px rgba(0, 229, 255, 0.25);
-      border: 1px solid rgba(0, 229, 255, 0.5);
+      border: 2px solid rgba(0, 229, 255, 0.4);
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
     }
+
     .db-title {
-      margin: 0 0 10px;
-      font-size: 28px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(18px, 3vw, 32px);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      text-align: center;
+      color: #00e5ff;
+      text-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+      margin-bottom: 8px;
     }
+
     .db-subtitle {
-      margin: 0 0 24px;
-      text-align: center;
-      font-size: 14px;
-      color: #a5b3ff;
+      font-size: clamp(10px, 1.5vw, 14px);
+      color: #8fa0ff;
+      opacity: 0.9;
     }
-    .db-top-bar {
+
+    .db-controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 20px;
       align-items: center;
       justify-content: space-between;
+      background: rgba(9, 14, 40, 0.6);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 229, 255, 0.3);
     }
+
     .db-search {
-      flex: 1 1 240px;
-      padding: 10px 12px;
+      flex: 1 1 300px;
+      min-width: 200px;
+      padding: 12px 18px;
+      padding-right: 40px;
       border-radius: 999px;
-      border: 1px solid rgba(0, 229, 255, 0.6);
+      border: 2px solid rgba(0, 229, 255, 0.5);
       background: rgba(5, 10, 30, 0.9);
       color: #f5f5f5;
       outline: none;
       font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .db-search:focus {
+      border-color: #00e5ff;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
     }
     .db-search::placeholder {
-      color: #7080b0;
+      color: #6080a0;
     }
+
+    .db-search-wrapper {
+      position: relative;
+      display: flex;
+      flex: 1 1 300px;
+      min-width: 200px;
+    }
+    .db-search-wrapper .db-search {
+      flex: 1;
+      min-width: 0;
+    }
+    .db-search-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.8);
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      font-family: sans-serif;
+      padding: 0;
+    }
+    .db-search-clear:hover {
+      background: rgba(255,75,75,0.6);
+      color: #fff;
+    }
+    .db-search-wrapper.has-text .db-search-clear {
+      display: flex;
+    }
+
     .db-btn {
       border-radius: 999px;
-      border: 1px solid #00e5ff;
+      border: 2px solid #00e5ff;
       background: linear-gradient(120deg, #00e5ff, #00ffa3);
       color: #050814;
       font-weight: 700;
-      padding: 10px 16px;
+      padding: 12px 24px;
       font-size: 14px;
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       white-space: nowrap;
+      font-family: inherit;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+    .db-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+    }
+    .db-btn:active {
+      transform: translateY(0);
     }
     .db-btn:disabled {
       opacity: 0.45;
@@ -99,118 +183,301 @@
       background: #222a40;
       color: #8b95c4;
       border-color: #444c70;
+      transform: none;
+      box-shadow: none;
     }
-    .db-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 10px;
+
+    .db-stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
-    .db-card {
-      background: radial-gradient(circle at top, rgba(0, 229, 255, 0.15), rgba(5, 10, 30, 0.95));
-      border-radius: 14px;
-      padding: 14px 14px 12px;
-      border: 1px solid rgba(0, 229, 255, 0.35);
-      box-shadow: 0 0 16px rgba(0, 229, 255, 0.15);
+
+    .db-stat-card {
+      flex: 1;
+      min-width: 150px;
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .db-stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #00e5ff;
+      text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    }
+
+    .db-stat-label {
+      font-size: 11px;
+      color: #8fa0ff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    .db-content {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: 13px;
     }
+
+    .db-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      flex: 1;
+    }
+
+    .db-card {
+      background: linear-gradient(145deg, rgba(9, 14, 40, 0.95), rgba(5, 10, 30, 0.98));
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(0, 229, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .db-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 229, 255, 0.2), inset 0 1px 0 rgba(0, 229, 255, 0.2);
+      border-color: rgba(0, 229, 255, 0.5);
+    }
+
     .db-card-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 4px;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.15);
     }
+
     .db-card-name {
       font-weight: 700;
-      font-size: 15px;
+      font-size: 16px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
     }
+
     .db-card-id {
-      font-size: 11px;
-      color: #8fa0ff;
+      font-size: 10px;
+      color: #6080a0;
+      background: rgba(0, 229, 255, 0.1);
+      padding: 4px 8px;
+      border-radius: 999px;
     }
-    .db-card-label {
-      font-weight: 600;
-      color: #9fb2ff;
-      margin-right: 4px;
+
+    .db-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
     }
+
     .db-card-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
       align-items: baseline;
+      gap: 8px;
+      font-size: 13px;
     }
+
+    .db-card-label {
+      font-weight: 600;
+      color: #00e5ff;
+      min-width: 100px;
+      flex-shrink: 0;
+    }
+
+    .db-card-value {
+      color: #c0d0e0;
+      word-break: break-word;
+    }
+
+    .db-card-value.password {
+      font-family: monospace;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
     .db-card-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 8px;
-      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0, 229, 255, 0.15);
+      gap: 10px;
     }
-    .db-tag {
-      font-size: 11px;
-      color: #a5b3ff;
-      opacity: 0.9;
+
+    .db-card-date {
+      font-size: 10px;
+      color: #6080a0;
     }
+
     .db-btn-small {
       border-radius: 999px;
-      border: 1px solid rgba(0, 229, 255, 0.7);
+      border: 1px solid rgba(0, 229, 255, 0.6);
       background: rgba(0, 229, 255, 0.15);
       color: #e8f4ff;
       font-size: 11px;
-      padding: 6px 10px;
+      padding: 8px 14px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       cursor: pointer;
       white-space: nowrap;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .db-btn-small:hover {
+      background: rgba(0, 229, 255, 0.25);
+      transform: translateY(-1px);
     }
     .db-btn-small:disabled {
       opacity: 0.4;
       cursor: not-allowed;
       border-color: #444c70;
       background: rgba(10, 14, 40, 0.9);
+      transform: none;
     }
+
     .db-empty {
-      margin-top: 20px;
+      grid-column: 1 / -1;
       text-align: center;
-      font-size: 14px;
-      color: #8b95c4;
+      padding: 60px 20px;
+      font-size: 16px;
+      color: #6080a0;
+      background: rgba(9, 14, 40, 0.5);
+      border-radius: 12px;
+      border: 1px dashed rgba(0, 229, 255, 0.3);
     }
+
     .db-warning {
-      margin-top: 6px;
       font-size: 11px;
       color: #ffbfbf;
       text-align: center;
-      opacity: 0.85;
+      padding: 8px;
+      background: rgba(255, 100, 100, 0.1);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 100, 100, 0.2);
     }
-    @media (max-width: 640px) {
-      .db-container {
-        margin: 12px;
-        padding: 16px 14px 24px;
+
+    .db-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #00e5ff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+    .db-back-link:hover {
+      color: #00ffa3;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 12px;
       }
-      .db-title {
-        font-size: 22px;
+      .db-page {
+        min-height: calc(100vh - 24px);
+      }
+      .db-controls {
+        flex-direction: column;
+      }
+      .db-search {
+        width: 100%;
+      }
+      .db-btn {
+        width: 100%;
+        text-align: center;
+      }
+      .db-list {
+        grid-template-columns: 1fr;
+      }
+      .db-stats {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
-  <div class="db-container">
-    <h1 class="db-title">Base de données joueurs</h1>
-    <p class="db-subtitle">Page cachée accessible uniquement par l'URL directe <code>/database</code>.</p>
-    <div class="db-top-bar">
-      <input id="db-search" class="db-search" type="search" placeholder="Rechercher par prénom, nom ou id…">
+  <div class="db-page">
+    <a href="/" class="db-back-link">← Retour au jeu</a>
+
+    <header class="db-header">
+      <h1 class="db-title">Base de données joueurs</h1>
+      <p class="db-subtitle">Panneau d'administration - Gestion des comptes et réponses</p>
+    </header>
+
+    <div class="db-stats">
+      <div class="db-stat-card">
+        <div class="db-stat-value" id="totalAccounts">0</div>
+        <div class="db-stat-label">Comptes totaux</div>
+      </div>
+      <div class="db-stat-card">
+        <div class="db-stat-value" id="accountsWithResponses">0</div>
+        <div class="db-stat-label">Avec réponses</div>
+      </div>
+      <div class="db-stat-card">
+        <div class="db-stat-value" id="filteredCount">0</div>
+        <div class="db-stat-label">Résultats affichés</div>
+      </div>
+    </div>
+
+    <div class="db-controls">
+      <div class="db-search-wrapper">
+        <input id="db-search" class="db-search" type="search" placeholder="Rechercher par prénom, nom ou identifiant...">
+        <button type="button" class="db-search-clear" aria-label="Effacer">&times;</button>
+      </div>
       <button id="db-download-all" class="db-btn">Tout télécharger (ZIP)</button>
     </div>
-    <div class="db-warning">Attention : les mots de passe sont affichés en clair (utilisation projet perso uniquement).</div>
-    <div id="db-list" class="db-list"></div>
-    <p id="db-empty" class="db-empty" style="display:none;">Aucun compte trouvé.</p>
+
+    <div class="db-warning">Attention : les mots de passe sont affichés en clair (utilisation projet personnel uniquement).</div>
+
+    <div class="db-content">
+      <div id="db-list" class="db-list"></div>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="/database.js"></script>
+  <script>
+    // Database search clear button functionality
+    (function(){
+      var wrapper = document.querySelector('.db-search-wrapper');
+      var searchInput = document.getElementById('db-search');
+      var clearBtn = document.querySelector('.db-search-clear');
+
+      if (!wrapper || !searchInput || !clearBtn) return;
+
+      function updateVisibility(){
+        if (searchInput.value.length > 0){
+          wrapper.classList.add('has-text');
+        } else {
+          wrapper.classList.remove('has-text');
+        }
+      }
+
+      searchInput.addEventListener('input', updateVisibility);
+      updateVisibility();
+
+      clearBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        searchInput.value = '';
+        searchInput.focus();
+        updateVisibility();
+        // Trigger input event for the search filter
+        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    })();
+  </script>
 </body>
 </html>

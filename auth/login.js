@@ -2,8 +2,32 @@
 // auth/login.js
 // Minimal login overlay that asks for [Prénom] + [Nom], then activates the SaveManager profile.
 // Shown AFTER the BNI splash has finished.
+// Session persistence: remembers login using localStorage
 
 (function(){
+  const SESSION_KEY = 'af_session';
+
+  // Check if already logged in
+  function getStoredSession(){
+    try {
+      const data = localStorage.getItem(SESSION_KEY);
+      if (data) return JSON.parse(data);
+    } catch(e){}
+    return null;
+  }
+
+  function saveSession(profile, account){
+    try {
+      localStorage.setItem(SESSION_KEY, JSON.stringify({ profile, account }));
+    } catch(e){}
+  }
+
+  function clearSession(){
+    try {
+      localStorage.removeItem(SESSION_KEY);
+    } catch(e){}
+  }
+
   // Build overlay UI
 function ensureStyles(){
   if (document.getElementById('af-login-style')) return;
@@ -72,6 +96,45 @@ function ensureStyles(){
       box-shadow: 0 0 12px #22e7ff, inset 0 0 8px rgba(34,231,255,.4);
     }
 
+    .af-input-wrapper {
+      position: relative;
+      display: flex;
+      flex: 1;
+      min-width: 0;
+    }
+    .af-input-wrapper .af-input {
+      width: 100%;
+      padding-right: 32px;
+    }
+    .af-input-clear {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      font-family: sans-serif;
+      padding: 0;
+    }
+    .af-input-clear:hover {
+      background: rgba(255,75,75,0.6);
+      color: #fff;
+    }
+    .af-input-wrapper.has-text .af-input-clear {
+      display: flex;
+    }
+
     .af-btn {
       margin-top: 10px;
       display: inline-block;
@@ -98,6 +161,15 @@ function ensureStyles(){
       box-shadow: none;
     }
 
+    .af-btn.af-btn-logout {
+      background: #ff4b4b;
+      border-color: #ff4b4b;
+      box-shadow: 0 0 12px rgba(255,75,75,.6);
+    }
+    .af-btn.af-btn-logout:hover {
+      background: #ff6b6b;
+    }
+
     .af-error {
       color: #f87171;
       font-weight: 700;
@@ -105,9 +177,31 @@ function ensureStyles(){
       display: none;
       text-shadow: 0 0 6px #b91c1c;
     }
+
+    .af-logout-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255,75,75,0.9);
+      border: 2px solid #ff4b4b;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255,75,75,.5);
+      transition: transform .1s, background .2s;
+      font-family: 'Silkscreen','Press Start 2P',monospace;
+    }
+    .af-logout-btn:hover {
+      background: #ff6b6b;
+      transform: translateY(-1px);
+    }
   `;
   const style = document.createElement('style');
-  style.id = 'af-login-style'; 
+  style.id = 'af-login-style';
   style.textContent = css;
   document.head.appendChild(style);
 }
@@ -122,11 +216,20 @@ function ensureStyles(){
       <h2>Connexion</h2>
       <p>Entrez votre <strong>prénom</strong>, votre <strong>nom</strong> et un <strong>mot de passe</strong>.</p>
       <div class="af-row">
-        <input class="af-input" id="afFirstName" placeholder="Prénom" autocomplete="given-name" />
-        <input class="af-input" id="afLastName" placeholder="Nom" autocomplete="family-name" />
+        <div class="af-input-wrapper">
+          <input class="af-input" id="afFirstName" placeholder="Prénom" autocomplete="given-name" />
+          <button type="button" class="af-input-clear" aria-label="Effacer">&times;</button>
+        </div>
+        <div class="af-input-wrapper">
+          <input class="af-input" id="afLastName" placeholder="Nom" autocomplete="family-name" />
+          <button type="button" class="af-input-clear" aria-label="Effacer">&times;</button>
+        </div>
       </div>
       <div class="af-row">
-        <input class="af-input" type="password" id="afPassword" placeholder="Mot de passe" autocomplete="current-password" />
+        <div class="af-input-wrapper">
+          <input class="af-input" type="password" id="afPassword" placeholder="Mot de passe" autocomplete="current-password" />
+          <button type="button" class="af-input-clear" aria-label="Effacer">&times;</button>
+        </div>
       </div>
       <div class="af-row">
         <button class="af-btn" id="afLoginBtn">CONNEXION</button>
@@ -160,6 +263,13 @@ function ensureStyles(){
   }
 
   async function showLogin(){
+    // First try to restore existing session
+    const existingSession = await restoreSession();
+    if (existingSession) {
+      // Already logged in, skip login overlay
+      return existingSession;
+    }
+
     const overlay = buildOverlay();
     await waitSplashThenShow(overlay);
     return await new Promise(resolve=>{
@@ -169,6 +279,36 @@ function ensureStyles(){
       const btnLogin = overlay.querySelector('#afLoginBtn');
       const btnRegister = overlay.querySelector('#afRegisterBtn');
       const err = overlay.querySelector('#afLoginErr');
+
+      // Setup clear buttons for input fields
+      function setupInputClearButtons(){
+        const wrappers = overlay.querySelectorAll('.af-input-wrapper');
+        wrappers.forEach(wrapper => {
+          const input = wrapper.querySelector('input');
+          const clearBtn = wrapper.querySelector('.af-input-clear');
+          if (!input || !clearBtn) return;
+
+          function updateVisibility(){
+            if (input.value.length > 0){
+              wrapper.classList.add('has-text');
+            } else {
+              wrapper.classList.remove('has-text');
+            }
+          }
+
+          input.addEventListener('input', updateVisibility);
+          updateVisibility();
+
+          clearBtn.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            input.value = '';
+            input.focus();
+            updateVisibility();
+          });
+        });
+      }
+      setupInputClearButtons();
 
       function setBusy(busy){
         btnLogin.disabled = !!busy;
@@ -263,6 +403,13 @@ function ensureStyles(){
           }catch(e){}
 
           window.dispatchEvent(new CustomEvent('af:login:done', { detail: { profile, account } }));
+
+          // Save session for persistence
+          saveSession(profile, account);
+
+          // Add logout button
+          addLogoutButton();
+
           overlay.remove();
           resolve(profile);
         }catch(e){
@@ -287,6 +434,84 @@ function ensureStyles(){
       setTimeout(()=> first.focus(), 50);
     });
   }
+
+  function addLogoutButton(){
+    ensureStyles();
+    // Remove existing logout button if any
+    const existing = document.getElementById('afLogoutBtn');
+    if (existing) existing.remove();
+
+    const btn = document.createElement('button');
+    btn.id = 'afLogoutBtn';
+    btn.className = 'af-logout-btn';
+    btn.textContent = 'DÉCONNEXION';
+    btn.addEventListener('click', ()=>{
+      clearSession();
+      // Reload the page to show login again
+      window.location.reload();
+    });
+    document.body.appendChild(btn);
+  }
+
+  async function restoreSession(){
+    const session = getStoredSession();
+    if (!session || !session.profile) return null;
+
+    const { profile, account } = session;
+
+    if (!window.AF_SaveManager){
+      console.warn('SaveManager not available for session restore');
+      return null;
+    }
+
+    try {
+      // Restore profile
+      await window.AF_SaveManager.useProfile(profile);
+      window.__PROFILE__ = profile;
+
+      // Sync stats from stored account
+      if (account && account.stats){
+        const stats = account.stats;
+        if (stats.bestScore != null) {
+          localStorage.setItem('angryflappy_bestscore', String(stats.bestScore));
+        }
+        if (stats.bestDistance != null) {
+          localStorage.setItem('angryflappy_high', String(stats.bestDistance));
+        }
+        if (stats.bestCaptures != null) {
+          localStorage.setItem('angryflappy_bestcaprun', String(stats.bestCaptures));
+        }
+        if (Array.isArray(stats.collection)) {
+          localStorage.setItem('angryflappy_collection', JSON.stringify(stats.collection));
+        }
+      }
+
+      // Update UI if elements exist
+      try{
+        const best = Number(localStorage.getItem('angryflappy_bestscore')||0);
+        const el = document.getElementById('bestScore'); if (el) el.textContent = String(best);
+        const balls = Number(localStorage.getItem('angryflappy_balls')||0);
+        const bStart = document.getElementById('ballsStart'); if (bStart) bStart.textContent = String(balls);
+      }catch(e){}
+
+      window.dispatchEvent(new CustomEvent('af:login:done', { detail: { profile, account } }));
+
+      // Add logout button
+      addLogoutButton();
+
+      return profile;
+    } catch(e){
+      console.warn('Session restore failed', e);
+      clearSession();
+      return null;
+    }
+  }
+
+  // Logout function exposed globally
+  window.AF_logout = function(){
+    clearSession();
+    window.location.reload();
+  };
 
   // Public API (global)
   window.AF_showLogin = showLogin;

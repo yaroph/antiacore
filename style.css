@@ -186,8 +186,8 @@ body {
 /* Ensure all content is clipped to the square game wrapper */
 #gameWrap {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vmin;
+  height: 100vmin;
   max-width: 100vmin;
   max-height: 100vmin;
   overflow: hidden;
@@ -202,15 +202,19 @@ body {
 }
 #game {
   display: block;
+  /* Internal resolution is always 910x910 - CSS scales it to fit container */
   width: 100%;
   height: 100%;
-  max-width: 100vmin;
-  max-height: 100vmin;
+  max-width: 100%;
+  max-height: 100%;
   aspect-ratio: 1/1;
   box-shadow: 0 10px 30px var(--shadow);
   border-radius: 0;
   background: transparent;
   z-index: 0;
+  /* Ensure crisp pixel scaling */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 canvas {
@@ -230,7 +234,7 @@ canvas {
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 24px);
-  max-width: calc(100vmin - 24px);
+  max-width: calc(100% - 24px);
   pointer-events: none;
   z-index: 20;
 }
@@ -285,7 +289,7 @@ body.in-battle #hudWrap {
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 24px);
-  max-width: calc(100vmin - 24px);
+  max-width: calc(100% - 24px);
   pointer-events: none;
   z-index: 20;
 }
@@ -1045,5 +1049,57 @@ body.in-battle .battle-bg { display: block !important; }
   #fleeBtn.pixel-btn {
     flex-basis: 100%;
   }
+}
+
+/* Logout button styling for PRESS START screen */
+#startLogoutBtn.btn.gb-btn.danger {
+  background: rgba(255,75,75,0.9);
+  border-color: #ff4b4b;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(255,75,75,.5), 0 4px 0 rgba(0,0,0,.7);
+}
+#startLogoutBtn.btn.gb-btn.danger:hover {
+  background: #ff6b6b;
+  box-shadow: 0 0 18px rgba(255,75,75,.7), 0 4px 0 rgba(0,0,0,.7);
+}
+
+/* Text input clear button wrapper */
+.input-clear-wrapper {
+  position: relative;
+  display: inline-flex;
+  flex: 1;
+  min-width: 0;
+}
+.input-clear-wrapper > input {
+  width: 100%;
+  padding-right: 32px;
+}
+.input-clear-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  font-family: sans-serif;
+  padding: 0;
+}
+.input-clear-btn:hover {
+  background: rgba(255,75,75,0.6);
+  color: #fff;
+}
+.input-clear-wrapper.has-text .input-clear-btn {
+  display: flex;
 }
 
