@@ -192,8 +192,14 @@ if (fleeBtnEl && fleeBtnEl.style) {
   const canvas = document.getElementById("game");
   const ctx = canvas.getContext("2d");
 
-  let W = canvas.width,
-    H = canvas.height;
+  // Fixed internal resolution - always 910x910 for consistent gameplay
+  // CSS handles visual scaling to fit different screen sizes
+  const GAME_SIZE = 910;
+  canvas.width = GAME_SIZE;
+  canvas.height = GAME_SIZE;
+
+  let W = GAME_SIZE,
+    H = GAME_SIZE;
   let availableMonsters = MONSTER_DEX.slice();
   let collidedMonsterIds = [];
   let answeredQuestionIds = [];
@@ -1372,7 +1378,7 @@ function startBattleIfCollision(mon) {
   
 function pickQuestion() {
   const unanswered = questions.filter(q => !answeredQuestionIds.includes(q.id));
-  if (unanswered.length === 0) return "No more questions!";
+  if (unanswered.length === 0) return "Plus de questions disponibles !";
 
   const gen = unanswered.filter(q => qType(q.type) === "general");
   const per = unanswered.filter(q => qType(q.type) === "personnel");
@@ -1397,7 +1403,7 @@ function pickQuestion() {
     if (pool.length === 0) pool = unanswered; // final fallback
   }
 
-  if (pool.length === 0) return "No more questions!";
+  if (pool.length === 0) return "Plus de questions disponibles !";
 
   const idx = Math.floor(Math.random() * pool.length);
   const chosen = pool[idx];
@@ -2539,7 +2545,7 @@ function drawBattleOverlays() {
       battle.hp = Math.max(0, roundToHalf(battle.hp - (activeUnit.power * 0.5))); // damage uses 0.5 heart per power
       fillBattleMenuDetails(battle.mon, battle.hp, activeUnit.power);
       if (battle.hp <= 0) { __af__ensureBattleEnds(); captureHint.textContent = "Le monstre est vaincu !"; setTimeout(() => { showFleeAndEnd(false); }, 800); return; }
-      captureHint.textContent = "Personal question answered! You attacked the monster.";
+      captureHint.textContent = "Question personnelle répondue ! Vous avez attaqué le monstre.";
       questionText.textContent = pickQuestion();
     AF_setupChoicesUI();
       battleAnswer.value = "";
@@ -2557,7 +2563,7 @@ function drawBattleOverlays() {
       if (!answeredQuestionIds.includes(qObj.id)) {
         answeredQuestionIds.push(qObj.id);
       }
-      captureHint.textContent = "Wrong answer! Battle ended.";
+      captureHint.textContent = "Mauvaise réponse ! Combat terminé.";
       if (success) { setTimeout(() => { showFleeAndEnd(false); }, 900); }
       return;
     }
@@ -2586,7 +2592,7 @@ if (qObj && AF_isCorrectAnswer(userAnswer, qObj)) {
     battle.hp = Math.max(0, roundToHalf(battle.hp - (activeUnit.power * 0.5)));
     fillBattleMenuDetails(battle.mon, battle.hp, activeUnit.power);
     if (battle.hp <= 0) { __af__ensureBattleEnds();
-      captureHint.textContent = "Monster is weak enough to be captured! Use the Capture button.";
+      captureHint.textContent = "Le monstre est affaibli et peut être capturé ! Utilisez le bouton Capturer.";
       setTimeout(() => {
         showFleeAndEnd(false);
       }, 1200);
@@ -2594,7 +2600,7 @@ if (qObj && AF_isCorrectAnswer(userAnswer, qObj)) {
     }
 
     // Saldırı başarılı, yeni soru gelsin
-    captureHint.textContent = "Correct! You attacked the monster.";
+    captureHint.textContent = "Bonne réponse ! Vous avez attaqué le monstre.";
     questionText.textContent = pickQuestion();
     AF_setupChoicesUI();
     battleAnswer.value = "";
@@ -2615,7 +2621,7 @@ if (qObj && AF_isCorrectAnswer(userAnswer, qObj)) {
   captureBtn.addEventListener("click", () => {
     if (!battle || anim.capture.active) return;
     if (balls <= 0) {
-      captureHint.textContent = "No balls left!";
+      captureHint.textContent = "Plus de boules !";
       return;
     }
     balls -= 1;
@@ -2662,10 +2668,10 @@ if (qObj && AF_isCorrectAnswer(userAnswer, qObj)) {
           }
           activeUnit.lives = activeUnit.hpMax;
           updateHUD();
-          captureHint.textContent = `Monster captured!`;
+          captureHint.textContent = `Monstre capturé !`;
           try{ window.audio && window.audio.sfx.captureSuccess(); }catch(e){}
         } else {
-          captureHint.textContent = "Capture failed!";
+          captureHint.textContent = "Capture échouée !";
           try{ window.audio && window.audio.sfx.captureFail(); }catch(e){}
         }
       }
@@ -2742,7 +2748,7 @@ if (qObj && AF_isCorrectAnswer(userAnswer, qObj)) {
       const arr = computeList();
       if (arr.length === 0) {
         const p = document.createElement("p");
-        p.textContent = "You have not captured any monsters yet.";
+        p.textContent = "Vous n'avez capturé aucun monstre pour le moment.";
         p.classList.add("warning-p");
         container.appendChild(p);
         return;

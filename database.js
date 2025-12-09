@@ -1,5 +1,6 @@
 // database.js
-// Page admin ultra simple pour lister les comptes + liens vers leurs réponses JSON.
+// Page admin pour lister les comptes + liens vers leurs réponses JSON.
+// Version améliorée avec statistiques et mise en page plein écran.
 
 (function(){
   const state = {
@@ -11,6 +12,19 @@
 
   function normalize(str){
     return String(str || '').normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().trim();
+  }
+
+  function updateStats(){
+    const totalEl = $('totalAccounts');
+    const withResponsesEl = $('accountsWithResponses');
+    const filteredEl = $('filteredCount');
+
+    if (totalEl) totalEl.textContent = state.accounts.length;
+    if (withResponsesEl) {
+      const count = state.accounts.filter(a => a.hasReponses).length;
+      withResponsesEl.textContent = count;
+    }
+    if (filteredEl) filteredEl.textContent = state.filtered.length;
   }
 
   function applyFilter(){
@@ -25,24 +39,28 @@
         return full.includes(q) || id.includes(q);
       });
     }
+    updateStats();
     renderList();
   }
 
   function renderList(){
     const listEl = $('db-list');
-    const emptyEl = $('db-empty');
+    if (!listEl) return;
     listEl.innerHTML = '';
 
     if (!state.filtered.length){
-      emptyEl.style.display = 'block';
+      const empty = document.createElement('div');
+      empty.className = 'db-empty';
+      empty.textContent = 'Aucun compte trouvé.';
+      listEl.appendChild(empty);
       return;
     }
-    emptyEl.style.display = 'none';
 
     for (const acc of state.filtered){
       const card = document.createElement('div');
       card.className = 'db-card';
 
+      // Header
       const header = document.createElement('div');
       header.className = 'db-card-header';
 
@@ -52,49 +70,62 @@
 
       const id = document.createElement('div');
       id.className = 'db-card-id';
-      id.textContent = acc.id || '';
+      id.textContent = acc.id || 'N/A';
 
       header.appendChild(name);
       header.appendChild(id);
       card.appendChild(header);
 
+      // Body
+      const body = document.createElement('div');
+      body.className = 'db-card-body';
+
+      // Password row
       const passRow = document.createElement('div');
       passRow.className = 'db-card-row';
       const passLabel = document.createElement('span');
       passLabel.className = 'db-card-label';
       passLabel.textContent = 'Mot de passe :';
       const passValue = document.createElement('span');
-      passValue.textContent = acc.password || '(non enregistré / ancien compte)';
+      passValue.className = 'db-card-value password';
+      passValue.textContent = acc.password || '(non enregistré)';
       passRow.appendChild(passLabel);
       passRow.appendChild(passValue);
-      card.appendChild(passRow);
+      body.appendChild(passRow);
 
+      // Responses row
       const respRow = document.createElement('div');
       respRow.className = 'db-card-row';
       const respLabel = document.createElement('span');
       respLabel.className = 'db-card-label';
       respLabel.textContent = 'Réponses :';
       const respValue = document.createElement('span');
+      respValue.className = 'db-card-value';
       if (acc.hasReponses && acc.reponsesFile){
         respValue.textContent = acc.reponsesFile.replace(/^\/reponses\//, '');
+        respValue.style.color = '#00ffa3';
       } else {
-        respValue.textContent = '(aucun fichier de réponses)';
+        respValue.textContent = '(aucun fichier)';
+        respValue.style.color = '#6080a0';
       }
       respRow.appendChild(respLabel);
       respRow.appendChild(respValue);
-      card.appendChild(respRow);
+      body.appendChild(respRow);
 
+      card.appendChild(body);
+
+      // Footer
       const footer = document.createElement('div');
       footer.className = 'db-card-footer';
 
-      const tag = document.createElement('div');
-      tag.className = 'db-tag';
-      const updated = acc.updatedAt ? new Date(acc.updatedAt).toLocaleString() : '';
-      tag.textContent = updated ? 'Dernière mise à jour : ' + updated : 'Compte sans date';
+      const dateEl = document.createElement('div');
+      dateEl.className = 'db-card-date';
+      const updated = acc.updatedAt ? new Date(acc.updatedAt).toLocaleString('fr-FR') : '';
+      dateEl.textContent = updated ? 'Mise à jour : ' + updated : 'Date inconnue';
 
       const btn = document.createElement('button');
       btn.className = 'db-btn-small';
-      btn.textContent = 'Télécharger les réponses';
+      btn.textContent = 'Télécharger';
       if (!(acc.hasReponses && acc.reponsesFile)){
         btn.disabled = true;
       } else {
@@ -108,7 +139,7 @@
         });
       }
 
-      footer.appendChild(tag);
+      footer.appendChild(dateEl);
       footer.appendChild(btn);
       card.appendChild(footer);
 
@@ -125,9 +156,9 @@
       }
       const data = await res.json();
       const accounts = (data && data.accounts) || [];
-      // garder en mémoire
       state.accounts = accounts;
       state.filtered = accounts.slice();
+      updateStats();
       renderList();
     }catch(err){
       console.error('Erreur de chargement des comptes', err);
@@ -142,7 +173,7 @@
     const btn = $('db-download-all');
     if (btn){
       btn.disabled = true;
-      btn.textContent = 'Préparation…';
+      btn.textContent = 'Préparation...';
     }
     try{
       const accounts = state.accounts.filter(a => a.hasReponses && a.reponsesFile);
