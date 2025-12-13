@@ -656,6 +656,42 @@ let monsters =  [
     stats: { hp: 12, maxhp: 10, power: 12, stars: 0 },
     img: "assets/worm_pixel.png"
   }
+{
+    id: "Z-074",
+    name: "MECAMLADEN",
+    category: "Sol",
+    form: "mlad and co",
+    color: { name: "Gris", hex: "#6b7280" },
+    stats: { hp: 12, maxhp: 10, power: 12, stars: 0 },
+    img: "assets/mlad.png"
+}
+{
+    id: "Z-075",
+    name: "MECAMLEKA",
+    category: "Plafond",
+    form: "mlad and co",
+    color: { name: "Gris", hex: "#6b7280" },
+    stats: { hp: 7, maxhp: 10, power: 10, stars: 0 },
+    img: "assets/leka.png"
+}
+{
+    id: "Z-076",
+    name: "MECAMZELINI",
+    category: "Sol",
+    form: "mlad and co",
+    color: { name: "Gris", hex: "#6b7280" },
+    stats: { hp: 7, maxhp: 10, power: 10, stars: 0 },
+    img: "assets/zelini.png"
+}
+{
+    id: "Z-078",
+    name: "MECABROOK",
+    category: "Plafond",
+    form: "mlad and co",
+    color: { name: "Gris", hex: "#6b7280" },
+    stats: { hp: 7, maxhp: 10, power: 10, stars: 0 },
+    img: "assets/brooks.png"
+}
 ];
 
 window.MONSTERS = monsters;
